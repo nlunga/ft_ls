@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   ft_otherdir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 10:46:26 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/16 09:30:49 by nlunga           ###   ########.fr       */
+/*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
+/*   Updated: 2019/07/19 16:22:02 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFT_H
-# define FT_LIBFT_H
-# include <dirent.h>
-# include <sys/types.h>
-# include <time.h>
-# include <stdio.h>
-typedef char** str_Arr;
+#include "ft_ls.h"
 
-typedef	struct	num_arg
+void	ft_otherdir(char *argv)
 {
-	char				*options;
-	struct	num_arg 	*next;
-}						num_arg_t;
+	
+	DIR				*dir;
+	struct dirent 	*sd;
+	
+	dir = opendir(argv);
+	if (dir == NULL)
+	{
+		ft_putendl("WQWQEQEQEQEQ  ERROR! unable to open directory");
+		exit(1);
+	}
+	while((sd = readdir(dir)) != NULL)
+	{
+	//	ft_putstr("->> ");
+//		if (*sd->d_name != '.')
+			ft_putendl(sd->d_name);
+	}
 
-#endif
+	closedir(dir);
+}

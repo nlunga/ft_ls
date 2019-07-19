@@ -6,12 +6,11 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/12 15:22:54 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/19 18:48:08 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "ft_libft/ft_libft.h"
+#include "ft_ls.h"
 
 /*
 char	*ft_ls(char *command, char *options, ...)
@@ -24,58 +23,43 @@ char	*ft_ls(char *command, char *options, ...)
 		ft_putendl("ERROR! : incorrect command");
 	}
 }*/
-
-int	checkflags(char **argv)
+/*
+int	checkflags(int argc, char **argv)
 {
-	if (argc == 2)
-		if (argv[1] == "-l")
-}
-
-void	ft_currentdir(int argc, char **argv)
-{
-	DIR				*dir;
-	struct dirent	*sd;
-
-	if (argc == 1)
+	char	options[100];
+	char	flags[100];
+	int		i;
+	int		j;
+	
+	if (argc > 2)
 	{
-		if (argv[0])
+		while (argv[i])
 		{
-			dir = opendir(".");
-			if (dir == NULL)
-			{
-				ft_putendl("ERROR! unable to open directory");
-			}
-			while ((sd = readdir(dir)) != NULL)
-			{
-				//ft_putstr("");
-				ft_putendl(sd->d_name);
-			}
-			
-			closedir(dir);
+			j = 1;
+			if (argv[j][0] == '-')
+				options[0] = argv[j][0];
+			j++;
+			i++;
 		}
 	}
+	ft_putendl("this is an option");
+	return (0);
 }
-/*
-void	ft_opendir(char **argv)
+
+
+
+int	the_time(int argc, char **argv)
 {
-	DIR				*dir;
-	struct dirent 	*sd;
-	
-	dir = opendir(*argv[i]);
-	if (dir == NULL)
-	{
-		ft_putendl("ERROR! unable to open directory");
-		exit(1);
-	}
-	while((sd = readdir(dir)) != NULL)
-	{
-		ft_putstr("->> ");
-		ft_putendl(sd->d_name);
-	}
+	time_t			my_time;
+	struct tm		*mytm;
 
-	closedir(dir);
-}
+	my_time = time(NULL);
 
+	printf("%s\n", ctime(&my_time));
+	return (0);
+}*/
+
+/*
 int		ft_ls(int argc, char **argv)
 {
 	if (argc == 1)
@@ -95,9 +79,34 @@ int		ft_ls(int argc, char **argv)
 */
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
+	int	i;
+
+	i = 1;
+	if (argc < 2)
+	{
 		if (argv[0])
 			ft_currentdir(argc, argv);
+		else
+		{
+		//	i = 1;
+		/*	while (argv[i])
+			{
+				if (ft_check_flags == 1) // come back and edit
+					i++;
+				else if (ft_isdir == 1) // come back and edit
+				{
+					ft_opendir(argv[i]);
+				}
+				i++;
+			}*/
+		}
+	}
+	else
+	{
+		printf("%s\n", argv[i]);
+			ft_otherdir(argv[i]);
+	}
+//	the_time(argc, argv);
 	return (0);
 }
 
