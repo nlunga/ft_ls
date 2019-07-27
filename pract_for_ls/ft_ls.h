@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/19 09:56:56 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/27 09:40:27 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,25 @@
 # include <sys/xattr.h>
 # include <time.h>
 # include <stdio.h>
+# define FLAGE_SIZE 2019
 
-typedef char** str_Arr;
+typedef struct		s_flags
+{
+	int				l_flag;
+	int				a_flag;
+	int				r_flag;
+	int				t_flag;
+	int				cr_flag;
+	struct s_flags	*next;
+}					t_flags;
 
-void	ft_otherdir(char *argv);
-void	ft_currentdir(int argc, char **argv);
-
+void				ft_otherdir(char *argv);
+void				ft_currentdir(int argc, char **argv);
+int					ft_check_flags(int argc, char **argv);
+int					ft_isdir(int argc, char **argv);
+int					ft_conflags(int argc, char **argv);
+int					ft_reconflags(int argc, char **argv);
+int					ft_check_multi(char *str, char c, int i);
+int					ft_lflag(int argc, char **argv);
+int					ft_flags(int argc , char ** argv);
 #endif

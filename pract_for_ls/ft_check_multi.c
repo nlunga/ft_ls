@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_otherdir.c                                      :+:      :+:    :+:   */
+/*   ft_check_multi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/23 11:05:49 by nlunga           ###   ########.fr       */
+/*   Created: 2019/07/26 19:58:23 by nlunga            #+#    #+#             */
+/*   Updated: 2019/07/26 19:59:58 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <sys/errno.h>
 
-void	ft_otherdir(char *argv)
+int             ft_check_multi(char *str, char c, int i)
 {
-	
-	DIR				*dir;
-	struct dirent 	*sd;
-	
-	dir = opendir(argv);
-	if (dir == NULL)
-	{
-		//ft_putendl(strerror(errno));
-		perror("opendir");
-		exit(1);
-	}
-	/*
-			if (errno == 20)
-				ft_putendl(*argv);
-			else
-				perror("opendir");
-			exit(1);
-	*/
-	while((sd = readdir(dir)) != NULL)
-	{
-		if (*sd->d_name != '.')
-			ft_putendl(sd->d_name);
-	}
+        int     j;
 
-	closedir(dir);
+        j = 0;
+        while(j < i)
+        {
+                if (str[j] == c)
+                        return (0);
+                ++j;
+        }
+        return (1);
 }

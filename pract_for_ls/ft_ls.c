@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/19 18:48:08 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/27 09:41:16 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,30 +81,43 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
+	//struct s_flags m_flags;
 	i = 1;
 	if (argc < 2)
 	{
 		if (argv[0])
 			ft_currentdir(argc, argv);
-		else
-		{
-		//	i = 1;
-		/*	while (argv[i])
-			{
-				if (ft_check_flags == 1) // come back and edit
-					i++;
-				else if (ft_isdir == 1) // come back and edit
-				{
-					ft_opendir(argv[i]);
-				}
-				i++;
-			}*/
-		}
 	}
 	else
 	{
-		printf("%s\n", argv[i]);
+	//	printf("%s\n", argv[i]);
+//		while (argv[i])
+//		{
+//			ft_otherdir(argv[i]);
+//			i++;
+//		}
+		//ft_isdir(argc,argv);
+	//	i = 1;
+		if (ft_check_flags(argc, argv) == 0)
+			printf("Not a flag");
+		else 
+		{
+			ft_reconflags(argc, argv);
+			//printf("Is a flag");
+		}
+/*
+		while (argv[i])
+		{
+			if (ft_check_flags(argc, argv) == 1) // come back and edit
+				i++;
+			else if (ft_isdir(argc, argv))// == 1) // come back and edit
+			{
+				ft_otherdir(argv[i]);
+			}
 			ft_otherdir(argv[i]);
+			i++;
+		}
+		*/
 	}
 //	the_time(argc, argv);
 	return (0);
