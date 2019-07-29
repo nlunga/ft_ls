@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 19:02:24 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/27 11:21:16 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/29 11:34:14 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_reconflags(int argc, char **argv)
 {
-	if (ft_check_flags(argc, argv) == 1)
+	if (ft_check_flags(argc, argv) == 1 )
 	{
 		int i;
 		int j;

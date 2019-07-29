@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:08:13 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/27 11:20:11 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/29 11:08:38 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int ft_flags(int argc, char **argv)
         return 1;
  
     struct stat fileStat;
-    if(stat(argv[1],&fileStat) < 0)    
+    if(stat(argv[2],&fileStat) < 0)    
         return 1;
  
-    printf("Information for %s\n",argv[1]);
+    printf("Information for %s\n",argv[2]);
     printf("---------------------------\n");
     printf("File Size: \t\t%lld bytes\n",fileStat.st_size);
     printf("Number of Links: \t%d\n",fileStat.st_nlink);

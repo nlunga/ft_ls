@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/27 09:41:16 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/29 16:29:10 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ int	main(int argc, char **argv)
 {
 	int	i;
 
-	//struct s_flags m_flags;
+	struct s_flags *m_flags;
+	m_flags = (t_flags *)malloc(sizeof(t_flags));
 	i = 1;
 	if (argc < 2)
 	{
@@ -93,7 +94,7 @@ int	main(int argc, char **argv)
 	//	printf("%s\n", argv[i]);
 //		while (argv[i])
 //		{
-//			ft_otherdir(argv[i]);
+	//		ft_otherdir(argv[i]);
 //			i++;
 //		}
 		//ft_isdir(argc,argv);
@@ -102,7 +103,13 @@ int	main(int argc, char **argv)
 			printf("Not a flag");
 		else 
 		{
-			ft_reconflags(argc, argv);
+			//ft_out_of_scope(argc, argv);
+			ft_verflag(argc, argv, m_flags);
+			printf("Testing -l flag: %d\n", m_flags->l_flag);
+			printf("Testing -r flag: %d\n", m_flags->r_flag);
+			printf("Testing -a flag: %d\n", m_flags->a_flag);
+			printf("Testing -t flag: %d\n", m_flags->t_flag);
+			printf("Testing -R flag: %d\n", m_flags->cr_flag);
 			//printf("Is a flag");
 		}
 /*

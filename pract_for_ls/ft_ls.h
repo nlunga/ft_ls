@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/27 09:40:27 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/29 15:11:00 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ typedef struct		s_flags
 }					t_flags;
 
 void				ft_otherdir(char *argv);
+void				ft_a_otherdir(char *argv);
 void				ft_currentdir(int argc, char **argv);
+void				ft_a_currentdir(int argc, char **argv);
 int					ft_check_flags(int argc, char **argv);
 int					ft_isdir(int argc, char **argv);
 int					ft_conflags(int argc, char **argv);
@@ -43,4 +45,7 @@ int					ft_reconflags(int argc, char **argv);
 int					ft_check_multi(char *str, char c, int i);
 int					ft_lflag(int argc, char **argv);
 int					ft_flags(int argc , char ** argv);
+int					ft_out_of_scope(int argc, char **argv);
+int					ft_permissions(/*int argc,*/ char **argv);
+int					ft_verflag(int argc, char	**argv, t_flags *m_flags);
 #endif
