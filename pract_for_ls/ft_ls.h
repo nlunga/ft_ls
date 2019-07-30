@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/29 15:11:00 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/30 09:09:39 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int					ft_isdir(int argc, char **argv);
 int					ft_conflags(int argc, char **argv);
 int					ft_reconflags(int argc, char **argv);
 int					ft_check_multi(char *str, char c, int i);
-int					ft_lflag(int argc, char **argv);
+int					ft_lflag(int argc, char **argv, t_flags *m_flags);
 int					ft_flags(int argc , char ** argv);
 int					ft_out_of_scope(int argc, char **argv);
 int					ft_permissions(/*int argc,*/ char **argv);
-int					ft_verflag(int argc, char	**argv, t_flags *m_flags);
+int					ft_verflag(char	**argv, t_flags *m_flags);
 #endif

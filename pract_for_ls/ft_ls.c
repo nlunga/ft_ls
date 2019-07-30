@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/29 16:29:10 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/30 14:07:09 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	checkflags(int argc, char **argv)
 	char	flags[100];
 	int		i;
 	int		j;
-	
+
 	if (argc > 2)
 	{
 		while (argv[i])
@@ -101,15 +101,17 @@ int	main(int argc, char **argv)
 	//	i = 1;
 		if (ft_check_flags(argc, argv) == 0)
 			printf("Not a flag");
-		else 
+		else
 		{
 			//ft_out_of_scope(argc, argv);
-			ft_verflag(argc, argv, m_flags);
+/*			ft_verflag(argv, m_flags);
 			printf("Testing -l flag: %d\n", m_flags->l_flag);
 			printf("Testing -r flag: %d\n", m_flags->r_flag);
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
-			printf("Testing -R flag: %d\n", m_flags->cr_flag);
+			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
+			ft_lflag(argc, argv, m_flags);
+			free(m_flags);
 			//printf("Is a flag");
 		}
 /*
@@ -140,10 +142,10 @@ int	main(int argc, char **argv)
 // you can identify an option because it has '-' infront of the option
 // if not an option is it a directory
 // if it's directory open it and print out its contents
-// 
+//
 // a way to handle indefine arity is through the use of linked lists
 // strsplit the arguments removing all the spacing
-// use 
+// use
 // create a list and then iterate trough the lists
 // store the last variable/node of the list somewhere
 //

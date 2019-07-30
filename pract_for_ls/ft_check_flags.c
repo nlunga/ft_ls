@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:00:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/26 16:28:03 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/07/30 13:47:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_check_flags(int argc, char **argv)
 {
 	int i;
-	char	*option;
+//	char	*option;
 
 	i = 1;
 	if (argc < 2)
@@ -28,8 +28,8 @@ int	ft_check_flags(int argc, char **argv)
 				break;
 			if (argv[i][0] == '-')
 			{
-				option = ft_strnew(ft_strlen(argv[i]));
-				option = argv[i];
+//				option = ft_strnew(ft_strlen(argv[i]));
+//				option = argv[i];
 				return (1);
 			}
 			i++;
