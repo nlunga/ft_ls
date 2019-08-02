@@ -34,10 +34,10 @@ typedef struct		s_flags
 	struct s_flags	*next;
 }					t_flags;
 
-void				ft_otherdir(char *argv);
-void				ft_a_otherdir(char *argv);
-void				ft_currentdir(int argc, char **argv);
-void				ft_a_currentdir(int argc, char **argv);
+void					ft_otherdir(char *argv);
+void					ft_a_otherdir(char *argv);
+void					ft_currentdir(int argc, char **argv);
+void					ft_a_currentdir(int argc, char **argv);
 int					ft_check_flags(int argc, char **argv);
 int					ft_isdir(int argc, char **argv);
 int					ft_conflags(int argc, char **argv);
@@ -46,6 +46,7 @@ int					ft_check_multi(char *str, char c, int i);
 int					ft_lflag(int argc, char **argv, t_flags *m_flags);
 int					ft_flags(int argc , char ** argv);
 int					ft_out_of_scope(int argc, char **argv);
-int					ft_permissions(/*int argc,*/ char **argv);
+//int					ft_permissions(/*int argc,*/ char **argv);
+void					ft_permissions(void);
 int					ft_verflag(char	**argv, t_flags *m_flags);
 #endif

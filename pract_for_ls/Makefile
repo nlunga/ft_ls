@@ -19,6 +19,7 @@ FLAGS = -Wall -Werror -Wextra -c
 SRCS = ft_conflags.c ./ft_reconflags.c ./ft_a_currentdir.c ./ft_currentdir.c\
 	   ./ft_verflag.c ./ft_flags.c ./ft_isdir.c ./ft_otherdir.c\
 	   ./ft_check_flags.c ./ft_lflag.c ./ft_out_of_scope.c ./ft_check_multi.c\
+	   ./ft_permissions.c\
 	   #./ft_permissions.c ./ft_a_otherdir.c ./ft_a_currentdir.c ./ft_aflag.c\ 
 
 OBJS = $(SRCS:.c=.o)
@@ -40,5 +41,7 @@ re: fclean all
 
 nnil:
 	gcc -o ft_ls ft_ls.c ft_ls.a ./libft/libft.a
+no:
+	rm ft_ls.a
 
 .PHONY: re, fclean, clean, all

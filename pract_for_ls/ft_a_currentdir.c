@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-void	ft_currentdir(int argc, char **argv)
+void	ft_a_currentdir(int argc, char **argv)
 {
 	DIR				*dir;
 	struct dirent	*sd;
@@ -28,7 +28,7 @@ void	ft_currentdir(int argc, char **argv)
 			}
 			while ((sd = readdir(dir)) != NULL)
 			{
-				//if (*sd->d_name != '.')
+//				if (*sd->d_name != '.')
 					ft_putendl(sd->d_name);
 			}
 

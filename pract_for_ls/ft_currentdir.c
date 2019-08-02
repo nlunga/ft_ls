@@ -28,7 +28,6 @@ void	ft_currentdir(int argc, char **argv)
 			}
 			while ((sd = readdir(dir)) != NULL)
 			{
-				//ft_putstr("");
 				if (*sd->d_name != '.')
 					ft_putendl(sd->d_name);
 			}
