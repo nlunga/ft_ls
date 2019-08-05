@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/30 09:09:39 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/05 14:25:21 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ typedef struct		s_flags
 	struct s_flags	*next;
 }					t_flags;
 
-void					ft_otherdir(char *argv);
-void					ft_a_otherdir(char *argv);
-void					ft_currentdir(int argc, char **argv);
-void					ft_a_currentdir(int argc, char **argv);
+void				ft_otherdir(char *argv);
+void				ft_a_otherdir(char *argv);
+void				ft_currentdir(int argc, char **argv);
+void				ft_a_currentdir(int argc, char **argv);
+//void				ft_display_owner_perm(fileStat.st_mode);
 int					ft_check_flags(int argc, char **argv);
 int					ft_isdir(int argc, char **argv);
 int					ft_conflags(int argc, char **argv);
@@ -47,6 +48,7 @@ int					ft_lflag(int argc, char **argv, t_flags *m_flags);
 int					ft_flags(int argc , char ** argv);
 int					ft_out_of_scope(int argc, char **argv);
 //int					ft_permissions(/*int argc,*/ char **argv);
-void					ft_permissions(void);
+//void					ft_permissions(void);
 int					ft_verflag(char	**argv, t_flags *m_flags);
+void				ft_m_time(const char *path);
 #endif

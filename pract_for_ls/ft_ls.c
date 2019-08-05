@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/30 14:07:09 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/05 16:30:31 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	main(int argc, char **argv)
 	else
 	{
 	//	printf("%s\n", argv[i]);
+	//	ft_otherdir(argv[i]);
 //		while (argv[i])
 //		{
 	//		ft_otherdir(argv[i]);
@@ -104,7 +105,7 @@ int	main(int argc, char **argv)
 		else
 		{
 			//ft_out_of_scope(argc, argv);
-/*			ft_verflag(argv, m_flags);
+		/*	ft_verflag(argv, m_flags);
 			printf("Testing -l flag: %d\n", m_flags->l_flag);
 			printf("Testing -r flag: %d\n", m_flags->r_flag);
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
