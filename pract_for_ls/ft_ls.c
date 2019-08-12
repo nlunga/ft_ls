@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/06 16:10:45 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/12 16:31:16 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,16 @@ int	main(int argc, char **argv)
 	int	i;
 
 	struct s_flags *m_flags;
+	struct c_list *find_data;
+	//d_list *man_data;
+
 	m_flags = (t_flags *)malloc(sizeof(t_flags));
+	find_data = (d_list *)malloc(sizeof(d_list));
 	i = 1;
 	if (argc < 2)
 	{
 		if (argv[0])
-			ft_currentdir(argc, argv);
+			ft_currentdir(argc, argv, find_data);
 	}
 	else
 	{
@@ -111,7 +115,7 @@ int	main(int argc, char **argv)
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
 			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
-			ft_lflag(argc, argv, m_flags);
+			ft_lflag(argc, argv, m_flags, find_data);
 			free(m_flags);
 			//printf("Is a flag");
 		}

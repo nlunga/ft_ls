@@ -6,17 +6,16 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 12:58:12 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/30 16:40:59 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/12 15:10:39 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	ft_verflag(char **argv, t_flags *m_flags)
+void ft_verflag(char **argv, t_flags *m_flags)
 {
 	int	i;
 	int	j;
-
 	m_flags->l_flag = 0;
 	m_flags->a_flag = 0;
 	m_flags->r_flag = 0;
@@ -43,5 +42,5 @@ int	ft_verflag(char **argv, t_flags *m_flags)
 		}
 		i++;
 	}
-	return (0);
+	return ; //(0);
 }

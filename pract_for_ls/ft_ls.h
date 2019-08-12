@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/05 14:25:21 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/12 16:31:28 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ typedef struct		s_flags
 	int				r_flag;
 	int				t_flag;
 	int				cr_flag;
-	struct s_flags	*next;
 }					t_flags;
+
+typedef struct		c_list
+{
+	char			*current;
+	struct c_list	*next;
+}					d_list;
 
 void				ft_otherdir(char *argv);
 void				ft_a_otherdir(char *argv);

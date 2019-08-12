@@ -6,16 +6,17 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:41:41 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/22 08:36:31 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/12 15:22:11 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_currentdir(int argc, char **argv)
+void	ft_currentdir(int argc, char **argv, d_list *get_data)
 {
 	DIR				*dir;
 	struct dirent	*sd;
+	size_t			i;
 
 	if (argc == 1)
 	{
@@ -26,13 +27,19 @@ void	ft_currentdir(int argc, char **argv)
 			{
 				ft_putendl("ERROR! unable to open directory");
 			}
+			i = 0;
+
 			while ((sd = readdir(dir)) != NULL)
 			{
 				if (*sd->d_name != '.')
-					ft_putendl(sd->d_name);
+				{
+					get_data->strings[i] = sd->d_name;
+					//printf("%s\n", get_data->strings[i]);
+				}
+				i++;
 			}
-
 			closedir(dir);
 		}
 	}
+	free(get_data);
 }
