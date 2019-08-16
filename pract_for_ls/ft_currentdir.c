@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:41:41 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/12 15:22:11 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/16 17:29:00 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ void	ft_currentdir(int argc, char **argv, d_list *get_data)
 			{
 				if (*sd->d_name != '.')
 				{
-					get_data->strings[i] = sd->d_name;
+					get_data->strings[i] = ft_strdup(sd->d_name);
 					//printf("%s\n", get_data->strings[i]);
+					i++;
+					//printf("%s\n", ft_strcat("./", sd->d_name));
 				}
-				i++;
 			}
 			closedir(dir);
 		}
 	}
-	free(get_data);
+//	free(get_data);
 }

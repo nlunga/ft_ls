@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/07 12:45:49 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/16 17:17:41 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_otherdir(char *argv)
 	
 	DIR				*dir;
 	struct dirent 	*sd;
+//	t_info directory_name[200000];
 	
 	dir = opendir(argv);
 	if (dir == NULL)

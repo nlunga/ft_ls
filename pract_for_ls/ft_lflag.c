@@ -6,32 +6,32 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/12 15:14:05 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/16 19:26:21 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *man_data)
+int	ft_lflag(int argc,char **argv, t_flags *m_flags/*, d_list *find_data*/)
 {
-	printf("%s\n", man_data->strings[1]);
 	int i;
+ 	d_list *find_data;
 
 	i = 1;
-	while (i < argc && ft_check_flags(argc, argv) == 0)
+	find_data = (d_list *)malloc(sizeof(d_list));
+	/*
+	 * UNCOMMENT ME!!!!!!!!!!!!!!!!!
+	 * while (i < argc && ft_check_flags(argc, argv) == 0)
 	{
 		i++;
 	}
 	i++;
 	
-//	printf("%i >>%s\n", i, argv[i]);
+	printf("%i >>%s\n", i, argv[i]);*/
 	ft_verflag(argv, m_flags);
 	if (m_flags->l_flag == 1)
-		printf("L flag is true");
-	if (m_flags->l_flag == 1)
 	{
-		printf("L flag is true");
-		if (argc >= 2)
+		if (argc == 2)
 		{
 			struct stat fileinfo;
 			struct passwd *pwd;
@@ -39,11 +39,12 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *man_data)
 			int j;
 
 			j = 0;
-			ft_currentdir(argc, argv, man_data);
-			while(man_data->strings[j] != NULL && i < argc)
+			ft_currentdir(argc, argv, find_data);
+			printf("%s\n", find_data->strings[0]);
+			while(argv[i] != NULL)
 			{
-				printf("%s\n", man_data->strings[j]);
-				if (stat(man_data->strings[j], &fileinfo) < 0)
+				//if (ft_isdir(&argv[i]) == 1)
+				if (stat(argv[i], &fileinfo) < 0)
 					return (1);
 				printf( (S_ISDIR(fileinfo.st_mode)) ? "d" : "-");
 				printf( (fileinfo.st_mode & S_IRUSR) ? "r" : "-");
