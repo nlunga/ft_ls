@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/16 20:36:30 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/17 08:10:06 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void				ft_currentdir(d_list *find_data);
 void				ft_a_currentdir(int argc, char **argv);
 //void				ft_display_owner_perm(fileStat.st_mode);
 int					ft_check_flags(int argc, char **argv);
-int					ft_isdir(int argc, char **argv);
+//int					ft_isdir(int argc, char **argv);
+int					ft_isdir(char *argv);
 int					ft_conflags(int argc, char **argv);
 int					ft_reconflags(int argc, char **argv);
 int					ft_check_multi(char *str, char c, int i);

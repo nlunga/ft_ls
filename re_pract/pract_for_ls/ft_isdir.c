@@ -6,13 +6,13 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 19:17:59 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/15 12:07:25 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/17 08:02:12 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		ft_isdir(int argc, char **argv)
+/*int		ft_isdir(int argc, char **argv)
 {
 	struct stat		buf;
 	int				i;
@@ -31,4 +31,15 @@ int		ft_isdir(int argc, char **argv)
 		}
 	}
 	return (0);
+}*/
+
+int		ft_isdir(char *argv)
+{
+	struct stat		buf;
+
+	stat(argv, &buf);
+	if(S_ISDIR(buf.st_mode))
+   		return (1);
+	else
+   		return (0);		
 }

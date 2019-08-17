@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/17 03:23:58 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/17 10:30:26 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 {
 	int i;
+	int d;
 
 	i = 1;
 	while (i < argc && ft_check_flags(argc, argv) == 0)
@@ -69,43 +70,77 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 			struct stat		dirinfo;
 			struct passwd	*nwd;
 			struct group	*mwd;
-			int d;
+//			int d;
 
-			d = 0;
+			//d = 0;
 			printf("%s\n", argv[i]);
-			ft_otherdir(argv[i], find_data);
-			printf("%s\n", find_data->dir_strings[10]);
-			printf("%s\n", find_data->dir_strings[d]);
-			printf("2 >> it is executing\n");
-			while(find_data->dir_strings[d] != NULL)
+			while (argv[i] != NULL)
 			{
-				printf("3 >> it is executing\n");
-				printf("---------%s\n", find_data->dir_strings[d]);
-				if (stat(find_data->dir_strings[d], &dirinfo) < 0)
+				d = 0;
+				if (ft_isdir(argv[i]) == 1)
 				{
-					return (1);
+					ft_otherdir(argv[i], find_data);
+				
+					//printf("%s\n", find_data->dir_strings[10]);
+					//printf("%s\n", find_data->dir_strings[d]);
+					//printf("2 >> it is executing\n");
+				//	d = 0;
+					while(find_data->dir_strings[d] != NULL)
+					{
+						printf("3 >> it is executing\n");
+						printf("---------%s\n", find_data->dir_strings[d]);
+						if (stat(find_data->dir_strings[d], &dirinfo) < 0)
+						{
+							return (1);
+						}
+						//stat(find_data->dir_strings[d], &dirinfo);
+						printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
+						printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
+						printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
+						printf( (dirinfo.st_mode & S_IXUSR) ? "x" : "-");
+						printf( (dirinfo.st_mode & S_IRGRP) ? "r" : "-");
+						printf( (dirinfo.st_mode & S_IWGRP) ? "w" : "-");
+						printf( (dirinfo.st_mode & S_IXGRP) ? "x" : "-");
+						printf( (dirinfo.st_mode & S_IROTH) ? "r" : "-");
+						printf( (dirinfo.st_mode & S_IWOTH) ? "w" : "-");
+						printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
+						printf(" ");
+						printf("%d ",dirinfo.st_nlink);
+						if ((nwd = getpwuid(dirinfo.st_uid)))
+							printf("%s ",nwd->pw_name);
+						if ((mwd = getgrgid(dirinfo.st_gid)))
+							printf("%s ",mwd->gr_name);
+						printf(" %lld ",dirinfo.st_size);
+						ft_m_time(find_data->dir_strings[d]);
+						printf("%s\n", find_data->dir_strings[d]);
+						d++;
+					}
 				}
-				//stat(find_data->dir_strings[d], &dirinfo);
-				printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
-				printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
-				printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
-				printf( (dirinfo.st_mode & S_IXUSR) ? "x" : "-");
-				printf( (dirinfo.st_mode & S_IRGRP) ? "r" : "-");
-				printf( (dirinfo.st_mode & S_IWGRP) ? "w" : "-");
-				printf( (dirinfo.st_mode & S_IXGRP) ? "x" : "-");
-				printf( (dirinfo.st_mode & S_IROTH) ? "r" : "-");
-				printf( (dirinfo.st_mode & S_IWOTH) ? "w" : "-");
-				printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
-				printf(" ");
-				printf("%d ",dirinfo.st_nlink);
-				if ((nwd = getpwuid(dirinfo.st_uid)))
-					printf("%s ",nwd->pw_name);
-				if ((mwd = getgrgid(dirinfo.st_gid)))
-					printf("%s ",mwd->gr_name);
-				printf(" %lld ",dirinfo.st_size);
-				ft_m_time(find_data->dir_strings[d]);
-				printf("%s\n", find_data->dir_strings[d]);
-				d++;
+				else
+				{
+					if (stat(argv[i], &dirinfo) < 0)
+						return (1);
+					printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
+					printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
+					printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
+					printf( (dirinfo.st_mode & S_IXUSR) ? "x" : "-");
+					printf( (dirinfo.st_mode & S_IRGRP) ? "r" : "-");
+					printf( (dirinfo.st_mode & S_IWGRP) ? "w" : "-");
+					printf( (dirinfo.st_mode & S_IXGRP) ? "x" : "-");
+					printf( (dirinfo.st_mode & S_IROTH) ? "r" : "-");
+					printf( (dirinfo.st_mode & S_IWOTH) ? "w" : "-");
+					printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
+					printf(" ");
+					printf("%d ",dirinfo.st_nlink);
+					if ((nwd = getpwuid(dirinfo.st_uid)))
+						printf("%s ",nwd->pw_name);
+					if ((mwd = getgrgid(dirinfo.st_gid)))
+						printf("%s ",mwd->gr_name);
+					printf(" %lld ",dirinfo.st_size);
+					ft_m_time(argv[i]);
+					printf("%s\n", argv[i]);
+				}
+				i++;
 			}
 		}
 		else
