@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/16 20:47:20 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/17 03:23:58 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 	ft_verflag(argv, m_flags);
 	if (m_flags->l_flag == 1)
 	{
-		printf("it is executing\n");
+	//	printf("it is executing\n");
 		if (argc == 2 && (ft_strcmp(argv[1], "-l")) == 0)
 		{
 			struct stat		fileinfo;
@@ -63,19 +63,29 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				j++;
 			}
 		}
-/*		else if (argc < 3)
+		else if (argc > 2)
 		{
+			printf("1 >> it is executing\n");
 			struct stat		dirinfo;
-			struct passwd	*pwd;
-			struct group	*gwd;
+			struct passwd	*nwd;
+			struct group	*mwd;
 			int d;
 
 			d = 0;
+			printf("%s\n", argv[i]);
 			ft_otherdir(argv[i], find_data);
-			while(find_data->strings[d] != NULL)
+			printf("%s\n", find_data->dir_strings[10]);
+			printf("%s\n", find_data->dir_strings[d]);
+			printf("2 >> it is executing\n");
+			while(find_data->dir_strings[d] != NULL)
 			{
+				printf("3 >> it is executing\n");
+				printf("---------%s\n", find_data->dir_strings[d]);
 				if (stat(find_data->dir_strings[d], &dirinfo) < 0)
+				{
 					return (1);
+				}
+				//stat(find_data->dir_strings[d], &dirinfo);
 				printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
 				printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
 				printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
@@ -88,10 +98,10 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
 				printf(" ");
 				printf("%d ",dirinfo.st_nlink);
-				if ((pwd = getpwuid(dirinfo.st_uid)))
-					printf("%s ",pwd->pw_name);
-				if ((gwd = getgrgid(dirinfo.st_gid)))
-					printf("%s ",gwd->gr_name);
+				if ((nwd = getpwuid(dirinfo.st_uid)))
+					printf("%s ",nwd->pw_name);
+				if ((mwd = getgrgid(dirinfo.st_gid)))
+					printf("%s ",mwd->gr_name);
 				printf(" %lld ",dirinfo.st_size);
 				ft_m_time(find_data->dir_strings[d]);
 				printf("%s\n", find_data->dir_strings[d]);
@@ -99,7 +109,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 			}
 		}
 		else
-			return (0); */
+			return (0); 
 	}
 	return (0);
 }

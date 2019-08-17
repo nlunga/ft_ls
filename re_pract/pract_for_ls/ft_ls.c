@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/16 20:42:10 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/16 21:27:20 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,10 @@ int	main(int argc, char **argv)
 	else
 	{
 	//	printf("%s\n", argv[i]);
-		c = 0;
-		ft_otherdir(argv[i], find_data);
-		while (find_data->dir_strings[c] != NULL)
-			printf("%s\n", find_data->dir_strings[c++]);
+//1		c = 0;
+//2		ft_otherdir(argv[i], find_data);
+//3		while (find_data->dir_strings[c] != NULL)
+//4			printf("%s\n", find_data->dir_strings[c++]);
 //		while (argv[i])
 //		{
 	//		ft_otherdir(argv[i]);
@@ -114,10 +114,10 @@ int	main(int argc, char **argv)
 //		}
 		//ft_isdir(argc,argv);
 	//	i = 1;
-//1		if (ft_check_flags(argc, argv) == 0)
-//2			printf("Not a flag");
-//3		else
-//4		{
+		if (ft_check_flags(argc, argv) == 0)
+			printf("Not a flag");
+		else
+		{
 			//ft_out_of_scope(argc, argv);
 		/*	ft_verflag(argv, m_flags);
 			printf("Testing -l flag: %d\n", m_flags->l_flag);
@@ -125,10 +125,10 @@ int	main(int argc, char **argv)
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
 			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
-//5			ft_lflag(argc, argv, m_flags, find_data);
-//6			free(m_flags);
+			ft_lflag(argc, argv, m_flags, find_data);
+			free(m_flags);
 			//printf("Is a flag");
-//7		}
+		}
 /*
 		while (argv[i])
 		{
