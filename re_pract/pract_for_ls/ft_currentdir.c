@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:41:41 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/16 20:26:25 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/20 10:41:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_currentdir(d_list *find_data)
 		ft_putendl("ERROR! unable to open directory");
 	}
 	i = 0;
-
 	while ((sd = readdir(dir)) != NULL)
 	{
 		if (*sd->d_name != '.')

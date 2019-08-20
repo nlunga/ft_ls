@@ -6,48 +6,12 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/16 21:27:20 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/20 13:52:23 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
 /*
-char	*ft_ls(char *command, char *options, ...)
-{
-	char	*str;
-	str = ft_strnew(ft_strlen(command));
-	str = command;
-	if (str != "ft_ls")
-	{
-		ft_putendl("ERROR! : incorrect command");
-	}
-}*/
-/*
-int	checkflags(int argc, char **argv)
-{
-	char	options[100];
-	char	flags[100];
-	int		i;
-	int		j;
-
-	if (argc > 2)
-	{
-		while (argv[i])
-		{
-			j = 1;
-			if (argv[j][0] == '-')
-				options[0] = argv[j][0];
-			j++;
-			i++;
-		}
-	}
-	ft_putendl("this is an option");
-	return (0);
-}
-
-
-
 int	the_time(int argc, char **argv)
 {
 	time_t			my_time;
@@ -59,24 +23,6 @@ int	the_time(int argc, char **argv)
 	return (0);
 }*/
 
-/*
-int		ft_ls(int argc, char **argv)
-{
-	if (argc == 1)
-	{
-		int i;
-
-		i = 0;
-		while (*argv[i])
-		{
-			ft_opendir(*argv[i]);
-			i++;
-		}
-
-	}
-	return (0);
-}
-*/
 int	main(int argc, char **argv)
 {
 	int	i;
@@ -125,7 +71,10 @@ int	main(int argc, char **argv)
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
 			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
-			ft_lflag(argc, argv, m_flags, find_data);
+			if (m_flags->l_flag)
+				ft_lflag(argc, argv, m_flags, find_data);
+	//		if (m_flags->a_flag)
+	//			ft_aflag(argc, argv, m_flags, find_data);
 			free(m_flags);
 			//printf("Is a flag");
 		}
@@ -144,6 +93,7 @@ int	main(int argc, char **argv)
 		*/
 	}
 //	the_time(argc, argv);
+//	sleep(10);
 	return (0);
 }
 

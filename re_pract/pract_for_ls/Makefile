@@ -6,7 +6,7 @@
 #    By: nlunga <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/30 08:21:26 by nlunga            #+#    #+#              #
-#    Updated: 2019/08/05 16:30:02 by nlunga           ###   ########.fr        #
+#    Updated: 2019/08/20 11:10:23 by nlunga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS = -Wall -Werror -Wextra -c
 SRCS = ft_conflags.c ./ft_reconflags.c ./ft_a_currentdir.c ./ft_currentdir.c\
 	   ./ft_verflag.c ./ft_flags.c ./ft_isdir.c ./ft_otherdir.c\
 	   ./ft_check_flags.c ./ft_lflag.c ./ft_out_of_scope.c ./ft_check_multi.c\
-	   ./ft_get_time.c\
+	   ./ft_get_time.c ./ft_aflag.c ./ft_a_otherdir.c\
 	   #./get_owner.c\
 	   #./ft_permissions.c\
 	   #./ft_permissions.c ./ft_a_otherdir.c ./ft_a_currentdir.c ./ft_aflag.c\ 

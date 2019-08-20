@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/17 10:30:26 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/20 16:05:35 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 	if (m_flags->l_flag == 1)
 	{
 	//	printf("it is executing\n");
-		if (argc == 2 && (ft_strcmp(argv[1], "-l")) == 0)
+		if (argc == 2/* && (ft_strcmp(argv[1], "-l")) == 0*/)
 		{
 			struct stat		fileinfo;
 			struct passwd	*pwd;
@@ -40,7 +40,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 			ft_currentdir(find_data);
 			while(find_data->strings[j] != NULL)
 			{
-				if (stat(find_data->strings[j], &fileinfo) < 0)
+				if (lstat(find_data->strings[j], &fileinfo) < 0)
 					return (1);
 				printf( (S_ISDIR(fileinfo.st_mode)) ? "d" : "-");
 				printf( (fileinfo.st_mode & S_IRUSR) ? "r" : "-");
@@ -64,21 +64,19 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				j++;
 			}
 		}
-		else if (argc > 2)
+		else if (argc != 2)
 		{
-			printf("1 >> it is executing\n");
 			struct stat		dirinfo;
 			struct passwd	*nwd;
 			struct group	*mwd;
-//			int d;
 
-			//d = 0;
-			printf("%s\n", argv[i]);
 			while (argv[i] != NULL)
 			{
+				find_data->path = ft_strdup(ft_strjoin(argv[i], "/"));
 				d = 0;
 				if (ft_isdir(argv[i]) == 1)
 				{
+					printf("%s:\n", argv[i]);
 					ft_otherdir(argv[i], find_data);
 				
 					//printf("%s\n", find_data->dir_strings[10]);
@@ -87,9 +85,9 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				//	d = 0;
 					while(find_data->dir_strings[d] != NULL)
 					{
-						printf("3 >> it is executing\n");
-						printf("---------%s\n", find_data->dir_strings[d]);
-						if (stat(find_data->dir_strings[d], &dirinfo) < 0)
+				//		printf("3 >> it is executing\n");
+						//printf("---------%s\n", find_data->dir_strings[d]);
+						if (lstat(ft_strjoin(find_data->path,find_data->dir_strings[d]), &dirinfo) < 0)
 						{
 							return (1);
 						}
@@ -115,10 +113,11 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 						printf("%s\n", find_data->dir_strings[d]);
 						d++;
 					}
+				//	printf("\n");
 				}
 				else
 				{
-					if (stat(argv[i], &dirinfo) < 0)
+					if (lstat(argv[i], &dirinfo) < 0)
 						return (1);
 					printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
 					printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
@@ -140,6 +139,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 					ft_m_time(argv[i]);
 					printf("%s\n", argv[i]);
 				}
+				printf("\n");
 				i++;
 			}
 		}
