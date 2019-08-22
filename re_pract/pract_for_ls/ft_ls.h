@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/20 13:10:03 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/22 16:22:06 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ int					ft_out_of_scope(int argc, char **argv);
 //int					ft_permissions(/*int argc,*/ char **argv);
 //void					ft_permissions(void);
 void				ft_verflag(char	**argv, t_flags *m_flags);
+void				da_perm(struct stat fileinfo);
+void				ft_getuid(struct stat fileinfo);
+void				ft_getgid(struct stat fileinfo);
 void				ft_m_time(const char *path);
 #endif

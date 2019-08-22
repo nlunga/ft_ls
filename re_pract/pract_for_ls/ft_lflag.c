@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/20 16:05:35 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/22 16:34:12 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 	ft_verflag(argv, m_flags);
 	if (m_flags->l_flag == 1)
 	{
-	//	printf("it is executing\n");
+		struct stat		fileinfo;
 		if (argc == 2/* && (ft_strcmp(argv[1], "-l")) == 0*/)
 		{
-			struct stat		fileinfo;
-			struct passwd	*pwd;
-			struct group	*gwd;
 			int j;
 
 			j = 0;
@@ -42,22 +39,10 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 			{
 				if (lstat(find_data->strings[j], &fileinfo) < 0)
 					return (1);
-				printf( (S_ISDIR(fileinfo.st_mode)) ? "d" : "-");
-				printf( (fileinfo.st_mode & S_IRUSR) ? "r" : "-");
-				printf( (fileinfo.st_mode & S_IWUSR) ? "w" : "-");
-				printf( (fileinfo.st_mode & S_IXUSR) ? "x" : "-");
-				printf( (fileinfo.st_mode & S_IRGRP) ? "r" : "-");
-				printf( (fileinfo.st_mode & S_IWGRP) ? "w" : "-");
-				printf( (fileinfo.st_mode & S_IXGRP) ? "x" : "-");
-				printf( (fileinfo.st_mode & S_IROTH) ? "r" : "-");
-				printf( (fileinfo.st_mode & S_IWOTH) ? "w" : "-");
-				printf( (fileinfo.st_mode & S_IXOTH) ? "x" : "-");
-				printf(" ");
+				da_perm(fileinfo);
 				printf("%d ",fileinfo.st_nlink);
-				if ((pwd = getpwuid(fileinfo.st_uid)))
-					printf("%s ",pwd->pw_name);
-				if ((gwd = getgrgid(fileinfo.st_gid)))
-					printf("%s ",gwd->gr_name);
+				ft_getuid(fileinfo);
+				ft_getgid(fileinfo);
 				printf(" %lld ",fileinfo.st_size);
 				ft_m_time(find_data->strings[j]);
 				printf("%s\n", find_data->strings[j]);
@@ -66,10 +51,6 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 		}
 		else if (argc != 2)
 		{
-			struct stat		dirinfo;
-			struct passwd	*nwd;
-			struct group	*mwd;
-
 			while (argv[i] != NULL)
 			{
 				find_data->path = ft_strdup(ft_strjoin(argv[i], "/"));
@@ -79,63 +60,31 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 					printf("%s:\n", argv[i]);
 					ft_otherdir(argv[i], find_data);
 				
-					//printf("%s\n", find_data->dir_strings[10]);
-					//printf("%s\n", find_data->dir_strings[d]);
-					//printf("2 >> it is executing\n");
-				//	d = 0;
 					while(find_data->dir_strings[d] != NULL)
 					{
-				//		printf("3 >> it is executing\n");
-						//printf("---------%s\n", find_data->dir_strings[d]);
-						if (lstat(ft_strjoin(find_data->path,find_data->dir_strings[d]), &dirinfo) < 0)
+						if (lstat(ft_strjoin(find_data->path,find_data->dir_strings[d]), &fileinfo) < 0)
 						{
 							return (1);
 						}
-						//stat(find_data->dir_strings[d], &dirinfo);
-						printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
-						printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
-						printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
-						printf( (dirinfo.st_mode & S_IXUSR) ? "x" : "-");
-						printf( (dirinfo.st_mode & S_IRGRP) ? "r" : "-");
-						printf( (dirinfo.st_mode & S_IWGRP) ? "w" : "-");
-						printf( (dirinfo.st_mode & S_IXGRP) ? "x" : "-");
-						printf( (dirinfo.st_mode & S_IROTH) ? "r" : "-");
-						printf( (dirinfo.st_mode & S_IWOTH) ? "w" : "-");
-						printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
-						printf(" ");
-						printf("%d ",dirinfo.st_nlink);
-						if ((nwd = getpwuid(dirinfo.st_uid)))
-							printf("%s ",nwd->pw_name);
-						if ((mwd = getgrgid(dirinfo.st_gid)))
-							printf("%s ",mwd->gr_name);
-						printf(" %lld ",dirinfo.st_size);
+						da_perm(fileinfo);
+						printf("%d ",fileinfo.st_nlink);
+						ft_getuid(fileinfo);
+						ft_getgid(fileinfo);
+						printf(" %lld ",fileinfo.st_size);
 						ft_m_time(find_data->dir_strings[d]);
 						printf("%s\n", find_data->dir_strings[d]);
 						d++;
 					}
-				//	printf("\n");
 				}
 				else
 				{
-					if (lstat(argv[i], &dirinfo) < 0)
+					if (lstat(argv[i], &fileinfo) < 0)
 						return (1);
-					printf( (S_ISDIR(dirinfo.st_mode)) ? "d" : "-");
-					printf( (dirinfo.st_mode & S_IRUSR) ? "r" : "-");
-					printf( (dirinfo.st_mode & S_IWUSR) ? "w" : "-");
-					printf( (dirinfo.st_mode & S_IXUSR) ? "x" : "-");
-					printf( (dirinfo.st_mode & S_IRGRP) ? "r" : "-");
-					printf( (dirinfo.st_mode & S_IWGRP) ? "w" : "-");
-					printf( (dirinfo.st_mode & S_IXGRP) ? "x" : "-");
-					printf( (dirinfo.st_mode & S_IROTH) ? "r" : "-");
-					printf( (dirinfo.st_mode & S_IWOTH) ? "w" : "-");
-					printf( (dirinfo.st_mode & S_IXOTH) ? "x" : "-");
-					printf(" ");
-					printf("%d ",dirinfo.st_nlink);
-					if ((nwd = getpwuid(dirinfo.st_uid)))
-						printf("%s ",nwd->pw_name);
-					if ((mwd = getgrgid(dirinfo.st_gid)))
-						printf("%s ",mwd->gr_name);
-					printf(" %lld ",dirinfo.st_size);
+					da_perm(fileinfo);
+					printf("%d ",fileinfo.st_nlink);
+					ft_getuid(fileinfo);
+					ft_getgid(fileinfo);
+					printf(" %lld ",fileinfo.st_size);
 					ft_m_time(argv[i]);
 					printf("%s\n", argv[i]);
 				}
