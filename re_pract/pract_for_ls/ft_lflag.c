@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/22 16:34:12 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/23 10:14:45 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				if (lstat(find_data->strings[j], &fileinfo) < 0)
 					return (1);
 				da_perm(fileinfo);
-				printf("%d ",fileinfo.st_nlink);
+				ft_putnbr(fileinfo.st_nlink);
+				ft_putchar(' ');
 				ft_getuid(fileinfo);
 				ft_getgid(fileinfo);
-				printf(" %lld ",fileinfo.st_size);
+				ft_putchar(' ');
+				ft_putnbr(fileinfo.st_size);
 				ft_m_time(find_data->strings[j]);
 				printf("%s\n", find_data->strings[j]);
 				j++;

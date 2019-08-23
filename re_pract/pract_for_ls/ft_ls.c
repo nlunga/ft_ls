@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/20 13:52:23 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/23 16:01:04 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ int	main(int argc, char **argv)
 		if (argv[0])
 		{
 			c = 0;
-			ft_currentdir(find_data);
+		/*	ft_currentdir(find_data);
 			while (find_data->strings[i] != NULL)
-				printf("%s\n", find_data->strings[i++]);
+				printf("%s\n", find_data->strings[i++]);*/
+			ft_sort(argc, ft_currentdir(find_data))
 		}
 		free(find_data);
 	}

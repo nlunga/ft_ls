@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/22 16:22:06 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/23 15:42:23 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void				da_perm(struct stat fileinfo);
 void				ft_getuid(struct stat fileinfo);
 void				ft_getgid(struct stat fileinfo);
 void				ft_m_time(const char *path);
+char				**ft_sort(int argc,void	 (*ft_currentdir)(d_list), d_list *find_data);
 #endif
