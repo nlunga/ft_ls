@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/23 16:01:04 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/27 12:06:04 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int	main(int argc, char **argv)
 		if (argv[0])
 		{
 			c = 0;
-		/*	ft_currentdir(find_data);
+			ft_currentdir(find_data);
 			while (find_data->strings[i] != NULL)
-				printf("%s\n", find_data->strings[i++]);*/
-			ft_sort(argc, ft_currentdir(find_data))
+				printf("%s\n", find_data->strings[i++]);
+	//12		ft_sort(argc, ft_currentdir(find_data))
 		}
 		free(find_data);
 	}
@@ -76,6 +76,8 @@ int	main(int argc, char **argv)
 				ft_lflag(argc, argv, m_flags, find_data);
 	//		if (m_flags->a_flag)
 	//			ft_aflag(argc, argv, m_flags, find_data);
+			if (m_flags->r_flag)
+				ft_rflag(argv, m_flags, find_data);
 			free(m_flags);
 			//printf("Is a flag");
 		}

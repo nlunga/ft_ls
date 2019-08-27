@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:16:39 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/27 08:23:15 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:05:36 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ void	string_sort(char **arr,const int len,int (*cmp_func)(const char *a, const c
 
 }
 */
-
-
+/*
 void	**ft_sort(char **temp,void (*ft_currentdir)(d_list), d_list *find_data)
 {
 	int i;
@@ -84,4 +83,22 @@ void	**ft_sort(char **temp,void (*ft_currentdir)(d_list), d_list *find_data)
 		return(find_data->strings);
 	}
 	return (NULL);
+}
+*/
+
+int	main(int ac, char **av)
+{
+	d_list *find_data;
+	find_data = (d_list *)malloc(sizeof(d_list));
+	
+	if (ac == 1)
+	{
+		int i;
+
+		i = 0;
+		ft_currentdir(find_data);
+		while (find_data->strings[i] != NULL)
+			ft_putendl(find_data->strings[i++]);
+	}
+	return (0);
 }
