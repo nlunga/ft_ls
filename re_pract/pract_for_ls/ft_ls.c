@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/27 12:06:04 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/29 13:36:32 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 		{
 			c = 0;
 			ft_currentdir(find_data);
-			while (find_data->strings[i] != NULL)
-				printf("%s\n", find_data->strings[i++]);
+			while (find_data->strings[c] != NULL)
+				printf("%s\n", find_data->strings[c++]);
 	//12		ft_sort(argc, ft_currentdir(find_data))
 		}
 		free(find_data);
@@ -72,12 +72,14 @@ int	main(int argc, char **argv)
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
 			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
-			if (m_flags->l_flag)
-				ft_lflag(argc, argv, m_flags, find_data);
-	//		if (m_flags->a_flag)
-	//			ft_aflag(argc, argv, m_flags, find_data);
-			if (m_flags->r_flag)
-				ft_rflag(argv, m_flags, find_data);
+	//1		if (m_flags->l_flag)
+	//1			ft_lflag(argc, argv, m_flags, find_data);
+	//1		if (m_flags->a_flag)
+	//1			ft_aflag(argc, argv, m_flags, find_data);
+	//1		if (m_flags->r_flag)
+	//1			ft_rflag(argc, argv, m_flags, find_data);
+			if (m_flags->cr_flag)
+				ft_crflag(argc, argv, m_flags, find_data);
 			free(m_flags);
 			//printf("Is a flag");
 		}

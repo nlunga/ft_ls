@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/23 10:14:45 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/29 13:32:17 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				ft_putnbr(fileinfo.st_size);
 				ft_m_time(find_data->strings[j]);
 				printf("%s\n", find_data->strings[j]);
+				ft_strdel(&find_data->strings[j]);
 				j++;
 			}
 		}
@@ -75,6 +76,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 						printf(" %lld ",fileinfo.st_size);
 						ft_m_time(find_data->dir_strings[d]);
 						printf("%s\n", find_data->dir_strings[d]);
+						ft_strdel(&find_data->dir_strings[d]);
 						d++;
 					}
 				}

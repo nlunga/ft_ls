@@ -6,18 +6,18 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 11:35:35 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/27 12:04:08 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/29 10:55:48 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_rflag(char **argv, t_flags *m_flags, d_list *find_data)
+void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 {
 	ft_verflag(argv, m_flags);
 	if (m_flags->r_flag == 1)
 	{
-		if (!argv[2])
+		if (argc == 2)
 		{
 			int i;
 

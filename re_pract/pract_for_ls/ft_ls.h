@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/27 12:01:23 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/29 11:24:57 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		c_list
 	char			*strings[2019];
 	char			*path;
 	char			*dir_strings[2018];
+	char			*big_r[20000];
 	struct c_list	*next;
 }					d_list;
 
@@ -54,7 +55,8 @@ int					ft_conflags(int argc, char **argv);
 int					ft_reconflags(int argc, char **argv);
 int					ft_check_multi(char *str, char c, int i);
 int					ft_lflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
-void				ft_rflag(char **argv, t_flags *m_flags, d_list *find_data);
+void				ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+void				ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 void				ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 int					ft_flags(int argc , char ** argv);
 int					ft_out_of_scope(int argc, char **argv);
