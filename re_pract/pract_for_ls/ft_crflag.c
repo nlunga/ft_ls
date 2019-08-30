@@ -1,16 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_crflag.c                                        :+:      :+:    :+:   */
+/*   ft_crflag.C                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 10:31:34 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/29 16:16:29 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/30 14:49:43 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+/*
+void	ft_reopen(char **path, d_list *find_data)
+{
+	int d;
+	int a;
+
+	d = 0;
+	a = 0;
+
+	ft_otherdir(path[d], find_data);
+	while (path[d] != NULL)
+	{
+		if (ft_isdir(path[d]))
+		{
+			
+			a++;
+		}
+		d++;
+	}
+}
+*/
+
+void	ft_read_store(int argc, char *path, d_list *find_data)
+{
+	int	i;
+	int c;
+
+	i = 0;
+	c = 0;
+	if (argc == 2)
+	{
+		path = ft_strdup(".");
+		ft_otherdir(path, find_data);
+	}
+	else
+		ft_otherdir(path, find_data);
+	while (find_data->dir_strings[i] != NULL)
+	{
+		if (ft_isdir(find_data->dir_strings[i]))
+		{
+			find_data->big_r[c] = ft_strdup(find_data->dir_strings[i]);
+			c++;
+		}
+		ft_putendl(find_data->dir_strings[i]);
+		ft_strdel(&find_data->dir_strings[i]);
+		i++;
+	}
+
+	ft_putendl(" ");
+}
 
 void	ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 {
@@ -26,29 +76,20 @@ void	ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 			i = 0;
 			d = 0;
 			c = 0;
-			ft_currentdir(find_data);
-			while (find_data->strings[i] != NULL)
-			{
-				if (ft_isdir(find_data->strings[i]))
-				{
-					find_data->big_r[c] = ft_strdup(find_data->strings[i]);
-					c++;
-				}
-				ft_putendl(find_data->strings[i]);
-				ft_strdel(&find_data->strings[i]);
-				i++;
-			}
-			ft_putendl(" ");
+			ft_read_store(argc,".", find_data);
+			ft_crflag(argc, find_data->big_r, m_flags, find_data);
 			ft_putendl(find_data->big_r[0]);
 			ft_putendl(find_data->big_r[1]);
 			ft_putendl(find_data->big_r[2]);
 			ft_putendl(find_data->big_r[3]);
 			ft_putendl(find_data->big_r[4]);
-			//ft_putchar(' ');
-			/*while (find_data->big_r[d] != NULL)
+	/*		
+			find_data->path = ft_strdup(ft_strcat(find_data->big_r[0], "/"));
+			while (find_data->big_r[d] != NULL)
 			{
 				ft_otherdir(find_data->big_r[d], find_data);
-				ft_crflag(argc, argv, m_flags, find_data);
+				ft_crflag(argc, find_data->path, m_flags, find_data);
+				ft_strdel(find_data->path);
 				d++;
 			}*/
 		}
