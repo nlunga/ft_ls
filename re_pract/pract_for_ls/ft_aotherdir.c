@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_a_currentdir.c                                  :+:      :+:    :+:   */
+/*   ft_aotherdir.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 08:41:41 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/20 10:12:16 by nlunga           ###   ########.fr       */
+/*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
+/*   Updated: 2019/08/30 23:40:40 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_a_currentdir(d_list *find_data)
+void	ft_aotherdir(char *argv, d_list *find_data)
 {
 	DIR				*dir;
-	struct dirent	*sd;
-	size_t			i;
-
-	dir = opendir(".");
+	struct dirent 	*sd;
+	int				i;
+	
+	dir = opendir(argv);
 	if (dir == NULL)
 	{
-		ft_putendl("ERROR! unable to open directory");
+		perror("opendir");
+		exit(1);
 	}
 	i = 0;
-	while ((sd = readdir(dir)) != NULL)
+	while((sd = readdir(dir)) != NULL)
 	{
 		find_data->strings[i] = ft_strdup(sd->d_name);
 		i++;
-		//ft_putendl(sd->d_name);
 	}
 	closedir(dir);
 }

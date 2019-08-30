@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/30 15:42:23 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/30 23:40:15 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ typedef struct		c_list
 }					d_list;
 
 void				ft_otherdir(char *argv, d_list *find_data);
-void				ft_a_otherdir(char *argv, d_list *find_data);
+void				ft_aotherdir(char *argv, d_list *find_data);
 void				ft_currentdir(d_list *find_data);
-void				ft_a_currentdir(/*int argc, char **argv*/d_list *find_data9);
+void				do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 //void				ft_display_owner_perm(fileStat.st_mode);
 int					ft_check_flags(int argc, char **argv);
 //int					ft_isdir(int argc, char **argv);

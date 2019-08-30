@@ -6,16 +6,14 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/30 14:11:10 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/30 22:30:48 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-#include <sys/errno.h>
 
 void	ft_otherdir(char *argv, d_list *find_data)
 {
-	
 	DIR				*dir;
 	struct dirent 	*sd;
 	int				i;
@@ -32,9 +30,9 @@ void	ft_otherdir(char *argv, d_list *find_data)
 		if (*sd->d_name != '.')
 		{
 			find_data->dir_strings[i] = ft_strdup(sd->d_name);
+			ft_putendl(find_data->dir_strings[i]);
 			i++;
 		}
 	}
-
 	closedir(dir);
 }

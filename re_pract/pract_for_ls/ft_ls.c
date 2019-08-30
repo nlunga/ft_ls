@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/30 15:11:35 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/30 23:41:45 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,31 @@ int	main(int argc, char **argv)
 		if (argv[0])
 		{
 			c = 0;
-			ft_currentdir(find_data);
-			while (find_data->strings[c] != NULL)
-			{
-				printf("%s\n", find_data->strings[c]);
-				ft_strdel(&find_data->strings[c]);
-				c++;
-			}
+			ft_otherdir(".", find_data);
+			while (find_data->dir_strings[c] != NULL)
+				ft_strdel(&find_data->dir_strings[c++]);
 	//12		ft_sort(argc, ft_currentdir(find_data))
 		}
 		free(find_data);
 	}
 	else
 	{
-	//	printf("%s\n", argv[i]);
-//1		c = 0;
-//2		ft_otherdir(argv[i], find_data);
-//3		while (find_data->dir_strings[c] != NULL)
-//4			printf("%s\n", find_data->dir_strings[c++]);
+		/*
+		c = 0;
+		while (argv[i] != NULL)
+		{
+			ft_putstr(argv[i]);
+			ft_putendl(":");
+			ft_otherdir(argv[i], find_data);
+			while (find_data->dir_strings[c] != NULL)
+				ft_putendl(find_data->dir_strings[c++]);
+			ft_putendl(" ");
+			i++;
+		}
+		*/
+
+		do_flags(argc, argv, m_flags, find_data);
+
 //		while (argv[i])
 //		{
 	//		ft_otherdir(argv[i]);
@@ -70,22 +77,24 @@ int	main(int argc, char **argv)
 		else
 		{
 			//ft_out_of_scope(argc, argv);
-		/*	ft_verflag(argv, m_flags);
+			/*
+			ft_verflag(argv, m_flags);
 			printf("Testing -l flag: %d\n", m_flags->l_flag);
 			printf("Testing -r flag: %d\n", m_flags->r_flag);
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
-			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
-	//1		if (m_flags->l_flag)
-	//1			ft_lflag(argc, argv, m_flags, find_data);
+			printf("Testing -R flag: %d\n", m_flags->cr_flag);
+			*/
+	//		if (m_flags->l_flag)
+	//			ft_lflag(argc, argv, m_flags, find_data);
 	//1		if (m_flags->a_flag)
 	//1			ft_aflag(argc, argv, m_flags, find_data);
 	//1		if (m_flags->r_flag)
 	//1			ft_rflag(argc, argv, m_flags, find_data);
-			if (m_flags->cr_flag)
-				ft_crflag(argc, argv, m_flags, find_data);
-			free(m_flags);
-			//printf("Is a flag");
+	//		if (m_flags->cr_flag)
+	//			ft_crflag(argc, argv, m_flags, find_data);
+	//		free(m_flags);
+			printf("Is a flag");
 		}
 /*
 		while (argv[i])
