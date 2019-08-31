@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 12:58:12 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 01:33:27 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/31 07:58:34 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 	int c;
 
 	i = 1;
-	//ft_verflag(argv, m_flags);
-	if (ft_check_flags(argc, argv))
+	ft_verflag(argv, m_flags);
+	if (ft_check_flags(argc, argv) == 1)
 	{
 		if (m_flags->l_flag)
 			ft_lflag(argc, argv, m_flags, find_data);
@@ -70,7 +70,11 @@ void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 			ft_putendl(":");
 			ft_otherdir(argv[i], find_data);
 			while (find_data->dir_strings[c] != NULL)
-				ft_putendl(find_data->dir_strings[c++]);
+			{
+				ft_putendl(find_data->dir_strings[c]);
+				ft_strdel(&find_data->dir_strings[c]);
+				c++;
+			}
 			ft_putendl(" ");
 			i++;
 		}
