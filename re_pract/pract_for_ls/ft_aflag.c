@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 11:20:55 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 00:38:20 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/31 11:23:49 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 	while (i < argc && ft_check_flags(argc, argv) == 0)
 		i++;
 	i++;
+	ft_verflag(argc, argv, m_flags);
 	if (m_flags->a_flag == 1)
 	{
 		if (argc == 2)

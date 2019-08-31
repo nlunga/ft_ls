@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 11:35:35 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 08:10:00 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/31 11:24:01 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 {
-	ft_verflag(argv, m_flags);
+	ft_verflag(argc, argv, m_flags);
 	if (m_flags->r_flag == 1)
 	{
 		if (argc == 2)
@@ -22,11 +22,16 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 			int i;
 
 			i = 0;
-			ft_currentdir(find_data);
-			while (find_data->strings[i] != NULL)
+			//ft_currentdir(find_data);
+			ft_otherdir(".", find_data);
+			while (find_data->dir_strings[i] != NULL)
 				i++;
 			while (i >= 0)
-				ft_putendl(find_data->strings[i--]);
+			{
+				ft_putendl(find_data->dir_strings[i]);
+				ft_strdel(&find_data->dir_strings[i]);
+				i--;
+			}
 		}
 		else
 		{
@@ -44,7 +49,11 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 				while (find_data->dir_strings[i] != NULL)
 					i++;
 				while (i >= 0)
-					ft_putendl(find_data->dir_strings[i--]);
+				{
+					ft_putendl(find_data->dir_strings[i]);
+					ft_strdel(&find_data->dir_strings[i]);
+					i--;
+				}
 				j++;
 			}
 

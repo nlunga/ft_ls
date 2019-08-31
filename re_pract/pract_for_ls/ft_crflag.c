@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_crflag.C                                        :+:      :+:    :+:   */
+/*   ft_crflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 10:31:34 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/30 14:49:43 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/31 11:22:39 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_read_store(int argc, char *path, d_list *find_data)
 
 void	ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 {
-	ft_verflag(argv, m_flags);
+	ft_verflag(argc, argv, m_flags);
 	if (m_flags->cr_flag == 1)
 	{
 		if (argc == 2)
