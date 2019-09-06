@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 11:22:21 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 15:47:35 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		c_list
 void				ft_otherdir(char *argv, d_list *find_data);
 void				ft_aotherdir(char *argv, d_list *find_data);
 void				ft_currentdir(d_list *find_data);
+void				ft_bubblesort(char **str);
 void				do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 //void				ft_display_owner_perm(fileStat.st_mode);
 int					ft_check_flags(int argc, char **argv);
@@ -56,7 +57,8 @@ int					ft_reconflags(int argc, char **argv);
 int					ft_check_multi(char *str, char c, int i);
 int					ft_lflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 void				ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
-void				ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+//void				ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+void				ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data);
 void				ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 int					ft_flags(int argc , char ** argv);
 int					ft_out_of_scope(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 11:22:58 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 16:02:12 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 			int j;
 
 			j = 0;
-			ft_currentdir(find_data);
-			while(find_data->strings[j] != NULL)
+			ft_otherdir(".", find_data);
+			while(find_data->dir_strings[j] != NULL)
 			{
-				if (lstat(find_data->strings[j], &fileinfo) < 0)
+				if (lstat(find_data->dir_strings[j], &fileinfo) < 0)
 					return (1);
 				da_perm(fileinfo);
 				ft_putnbr(fileinfo.st_nlink);
@@ -47,14 +47,15 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 				ft_putchar(' ');
 				ft_putnbr(fileinfo.st_size);
 				ft_putstr("  ");
-				ft_m_time(find_data->strings[j]);
-				printf("%s\n", find_data->strings[j]);
-				ft_strdel(&find_data->strings[j]);
+				ft_m_time(find_data->dir_strings[j]);
+				printf("%s\n", find_data->dir_strings[j]);
+				ft_strdel(&find_data->dir_strings[j]);
 				j++;
 			}
 		}
 		else if (argc != 2)
 		{
+			ft_bubblesort(argv);
 			while (argv[i] != NULL)
 			{
 				find_data->path = ft_strdup(ft_strjoin(argv[i], "/"));

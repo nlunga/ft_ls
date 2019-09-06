@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_aotherdir.c                                     :+:      :+:    :+:   */
+/*   ft_bubblesort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 15:25:52 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
+/*   Updated: 2019/09/06 10:50:56 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_aotherdir(char *argv, d_list *find_data)
+void	ft_bubblesort(char **str)
 {
-	DIR				*dir;
-	struct dirent 	*sd;
-	int				i;
-	
-	dir = opendir(argv);
-	if (dir == NULL)
+	int i;
+	int sort = 0;
+	char *temp;
+
+	while (!sort)
 	{
-		perror("opendir");
-		exit(1);
+		i = 0;
+		while (str[i + 1])
+		{
+			if (ft_strcmp(str[i], str[i + 1]) > 0)
+			{
+				temp = str[i];
+				str[i] = str[i + 1];
+				str[i + 1] = temp;
+			}
+			i++;
+		}
+		i = 0;
+		sort = 1;
+		while (str[i + 1] && sort)
+		{
+			if (ft_strcmp(str[i], str[i + 1]) > 0)
+				sort = 0;
+			i++;
+		}
 	}
-	i = 0;
-	while((sd = readdir(dir)) != NULL)
-	{
-		find_data->strings[i] = ft_strdup(sd->d_name);
-		i++;
-	}
-	ft_bubblesort(find_data->strings);
-	closedir(dir);
 }

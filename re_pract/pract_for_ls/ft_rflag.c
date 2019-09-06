@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 11:35:35 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 11:24:01 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 15:25:50 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 			int i;
 
 			i = 0;
-			//ft_currentdir(find_data);
 			ft_otherdir(".", find_data);
 			while (find_data->dir_strings[i] != NULL)
 				i++;

@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/31 11:26:59 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 10:57:59 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,13 @@ int	main(int argc, char **argv)
 		{
 			c = 0;
 			ft_otherdir(".", find_data);
+			//ft_bubblesort(find_data->dir_strings);
 			while (find_data->dir_strings[c] != NULL)
-				ft_strdel(&find_data->dir_strings[c++]);
-	//12		ft_sort(argc, ft_currentdir(find_data))
+			{
+				ft_putendl(find_data->dir_strings[c]);
+				ft_strdel(&find_data->dir_strings[c]);
+				c++;
+			}
 		}
 		free(find_data);
 	}
@@ -72,7 +76,7 @@ int	main(int argc, char **argv)
 //		}
 		//ft_isdir(argc,argv);
 	//	i = 1;
-		if (ft_check_flags(argc, argv) == 0)
+	/*	if (ft_check_flags(argc, argv) == 0)
 			printf("Not a flag");
 		else
 		{
@@ -83,7 +87,7 @@ int	main(int argc, char **argv)
 			printf("Testing -r flag: %d\n", m_flags->r_flag);
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
 			printf("Testing -t flag: %d\n", m_flags->t_flag);
-			printf("Testing -R flag: %d\n", m_flags->cr_flag);
+			printf("Testing -R flag: %d\n", m_flags->cr_flag);*/
 			
 	//		if (m_flags->l_flag)
 	//			ft_lflag(argc, argv, m_flags, find_data);
@@ -93,9 +97,9 @@ int	main(int argc, char **argv)
 	//1			ft_rflag(argc, argv, m_flags, find_data);
 	//		if (m_flags->cr_flag)
 	//			ft_crflag(argc, argv, m_flags, find_data);
-	//		free(m_flags);
+			free(m_flags);
 			//printf("Is a flag");
-		}
+//		}
 /*
 		while (argv[i])
 		{
@@ -106,10 +110,10 @@ int	main(int argc, char **argv)
 				ft_otherdir(argv[i]);
 			}
 			ft_otherdir(argv[i]);
-			i++;
+			i++;*/
 		}
-		*/
-	}
+		
+//	}
 //	the_time(argc, argv);
 //	sleep(10);
 	return (0);
