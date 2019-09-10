@@ -6,7 +6,8 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 10:57:59 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/10 09:05:06 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 10:15:40 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +42,6 @@ int	main(int argc, char **argv)
 		{
 			c = 0;
 			ft_otherdir(".", find_data);
-			//ft_bubblesort(find_data->dir_strings);
 			while (find_data->dir_strings[c] != NULL)
 			{
 				ft_putendl(find_data->dir_strings[c]);
@@ -53,20 +53,6 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		/*
-		c = 0;
-		while (argv[i] != NULL)
-		{
-			ft_putstr(argv[i]);
-			ft_putendl(":");
-			ft_otherdir(argv[i], find_data);
-			while (find_data->dir_strings[c] != NULL)
-				ft_putendl(find_data->dir_strings[c++]);
-			ft_putendl(" ");
-			i++;
-		}
-		*/
-
 		do_flags(argc, argv, m_flags, find_data);
 
 //		while (argv[i])
