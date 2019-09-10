@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 15:47:35 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/10 13:45:15 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ typedef struct		s_flags
 typedef struct		c_list
 {
 	char			*current;
-	char			*strings[2018];
+	char			*strings[20];
 	char			*path;
-	char			*dir_strings[2019];
-	char			*big_r[20000];
+	char			*dir_strings[20];
+	char			*big_r[50];
 	struct c_list	*next;
 }					d_list;
 

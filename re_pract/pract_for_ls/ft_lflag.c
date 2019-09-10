@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 16:02:12 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/10 11:46:55 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	ft_lflag(int argc,char **argv, t_flags *m_flags, d_list *find_data)
 					ft_m_time(argv[i]);
 					printf("%s\n", argv[i]);
 				}
+				ft_strdel(&find_data->path);
 				printf("\n");
 				i++;
 			}

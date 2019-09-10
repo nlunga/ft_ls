@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 15:26:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 16:02:15 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/10 16:45:42 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,38 @@
 void	ft_recurstore(char **arr, d_list *find_data)
 {
 	int i;
-	int c;
+//	int x = 0;
+	static int c = 0;
 
 	i = 0;
-	c = 0;
+//	ft_otherdir(arr, find_data);
 	while (arr[i] != NULL)
 	{
+		//printf("arr[%i]: %s\n", i, arr[i]);
 		if (ft_isdir(arr[i]))
-			find_data->big_r[c++] = ft_strdup(arr[i]);
+		{
+			//printf("-----------------arr[%d] has passed is_dir: %s\n", i,  arr[i]);
+			find_data->big_r[c] = ft_strdup(arr[i]);
+			c++;
+		}
 		ft_putendl(arr[i]);
+		ft_strdel(&arr[i]);
 		i++;
 	}
-	//c = 0;
 	ft_putendl(" ");
-	ft_recurstore(find_data->big_r, find_data);
-	
-//	while (find_data->big_r[c])
-//		ft_putendl(find_data->big_r[c++]);
-
+	//printf("%s\n", find_data->big_r[x]);
+/*	while (find_data->big_r[x] != NULL)
+	{
+		ft_recurstore(&find_data->big_r[x], find_data);
+		ft_strdel(&find_data->big_r[x]);
+		x++;
+	}*/
 }
 
 void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)
 {
+	int x = 0;
+
 	ft_verflag(argc, path, m_flags);
 	if (m_flags->cr_flag)
 	{
@@ -48,5 +58,11 @@ void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)
 			ft_otherdir(".", find_data);
 			ft_recurstore(find_data->dir_strings, find_data);
 		}			
+	}
+	printf("%s\n", find_data->big_r[x]);
+	while (find_data->big_r[x] != NULL)
+	{
+		printf("directories collected: %s\n", find_data->big_r[x]);
+		x++;
 	}
 }
