@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 15:26:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/10 16:45:42 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/11 15:53:22 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_recurstore(char **arr, d_list *find_data)
 {
 	int i;
-//	int x = 0;
+	int x = 0;
 	static int c = 0;
 
 	i = 0;
@@ -34,13 +34,14 @@ void	ft_recurstore(char **arr, d_list *find_data)
 		i++;
 	}
 	ft_putendl(" ");
+	sleep(5);
 	//printf("%s\n", find_data->big_r[x]);
-/*	while (find_data->big_r[x] != NULL)
+	while (find_data->big_r[x] != NULL)
 	{
 		ft_recurstore(&find_data->big_r[x], find_data);
 		ft_strdel(&find_data->big_r[x]);
 		x++;
-	}*/
+	}
 }
 
 void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)

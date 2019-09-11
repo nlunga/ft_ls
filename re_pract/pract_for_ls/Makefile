@@ -6,7 +6,7 @@
 #    By: nlunga <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/30 08:21:26 by nlunga            #+#    #+#              #
-#    Updated: 2019/09/06 15:51:09 by nlunga           ###   ########.fr        #
+#    Updated: 2019/09/11 09:16:11 by nlunga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = ft_conflags.c ./ft_reconflags.c ./ft_currentdir.c ./ft_aflag.c\
 	   ./ft_verflag.c ./ft_flags.c ./ft_isdir.c ./ft_otherdir.c\
 	   ./ft_check_flags.c ./ft_lflag.c ./ft_out_of_scope.c ./ft_check_multi.c\
 	   ./ft_get_time.c ./ft_getgid.c ./ft_aotherdir.c ./ft_getuid.c\
-	   ./da_perm.c ./ft_rflag.c ./ft_bubblesort.c ./ft_crflag.c\
+	   ./da_perm.c ./ft_rflag.c ./ft_bubblesort.c ./ft_crflag.c ./ft_tflag.c\
 	   #./ft_crflag.c\ 
 	   #./get_owner.c ./ft_sort.c\
 	   #./ft_permissions.c\
