@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/11 15:53:41 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/12 11:57:44 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct		c_list
 	char			*strings[2018];
 	char			*path;
 	char			*mtime[2021];
+	int				time[2021];
+	char			*mfile[2021];
 	char			*dir_strings[2019];
 	char			*big_r[20000];
 	struct c_list	*next;
