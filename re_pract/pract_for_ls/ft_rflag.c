@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 11:35:35 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 15:25:50 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 22:11:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 
 			i = 0;
 			ft_otherdir(".", find_data);
-			while (find_data->dir_strings[i] != NULL)
+			while (find_data->dr[i] != NULL)
 				i++;
 			while (i >= 0)
 			{
-				ft_putendl(find_data->dir_strings[i]);
-				ft_strdel(&find_data->dir_strings[i]);
+				ft_putendl(find_data->dr[i]);
+				ft_strdel(&find_data->dr[i]);
 				i--;
 			}
 		}
@@ -45,12 +45,12 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 				ft_putstr(argv[j]);
 				ft_putendl(":");
 				ft_otherdir(argv[j], find_data);
-				while (find_data->dir_strings[i] != NULL)
+				while (find_data->dr[i] != NULL)
 					i++;
 				while (i >= 0)
 				{
-					ft_putendl(find_data->dir_strings[i]);
-					ft_strdel(&find_data->dir_strings[i]);
+					ft_putendl(find_data->dr[i]);
+					ft_strdel(&find_data->dr[i]);
 					i--;
 				}
 				j++;

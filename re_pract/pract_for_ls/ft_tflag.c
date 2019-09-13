@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:10:26 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/13 19:01:47 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/14 00:42:29 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,10 +165,10 @@ void	ft_tflag(int argc, char **argv, d_list *find_data)
 	if (argc == 2)
 	{
 		ft_otherdir(".", find_data);
-		ft_tsort(find_data->dir_strings, find_data);
+		ft_tsort(find_data->dr, find_data);
 	//	ft_store_time(find_data->dir_strings[1], find_data, 0);
 	//	printf("argv: %s, find_data: %s\n", argv[0], find_data->mtime[0]);
-		while (find_data->dir_strings[i] != NULL && argv)
+		while (find_data->dr[i] != NULL && argv)
 		{
 //			printf("%s\n", find_data->mtime[i]);
 			printf(">>%d\n", find_data->time[i]);

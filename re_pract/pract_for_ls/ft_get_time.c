@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 09:35:41 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/11 15:54:05 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 21:47:07 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_m_time(const char *path)
 	char		da_time[25];
 	int			i;
 	int			k;
-	
+
 	stat(path, &da_mtime);
 	ft_strcpy(da_time, ctime(&da_mtime.st_mtime));
 	i = 4;

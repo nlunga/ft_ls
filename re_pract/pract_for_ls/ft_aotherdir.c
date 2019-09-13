@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 15:25:52 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 21:33:54 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_aotherdir(char *argv, d_list *find_data)
 {
 	DIR				*dir;
-	struct dirent 	*sd;
+	struct dirent	*sd;
 	int				i;
-	
+
 	dir = opendir(argv);
 	if (dir == NULL)
 	{
@@ -25,7 +25,7 @@ void	ft_aotherdir(char *argv, d_list *find_data)
 		exit(1);
 	}
 	i = 0;
-	while((sd = readdir(dir)) != NULL)
+	while ((sd = readdir(dir)) != NULL)
 	{
 		find_data->strings[i] = ft_strdup(sd->d_name);
 		i++;

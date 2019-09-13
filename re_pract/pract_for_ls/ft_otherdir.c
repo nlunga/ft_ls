@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:44:42 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/11 11:50:44 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 22:47:31 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_otherdir(char *argv, d_list *find_data)
 {
 	DIR				*dir;
-	struct dirent 	*sd;
+	struct dirent	*sd;
 	int				i;
-	
+
 	dir = opendir(argv);
 	if (dir == NULL)
 	{
@@ -25,15 +25,14 @@ void	ft_otherdir(char *argv, d_list *find_data)
 		exit(1);
 	}
 	i = 0;
-	while((sd = readdir(dir)) != NULL)
+	while ((sd = readdir(dir)) != NULL)
 	{
 		if (*sd->d_name != '.')
 		{
-			find_data->dir_strings[i] = ft_strdup(sd->d_name);
-			//ft_putendl(find_data->dir_strings[i]);
+			find_data->dr[i] = ft_strdup(sd->d_name);
 			i++;
 		}
 	}
-	ft_bubblesort(find_data->dir_strings);
+	ft_bubblesort(find_data->dr);
 	closedir(dir);
 }

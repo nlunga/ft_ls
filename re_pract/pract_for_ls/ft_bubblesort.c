@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 10:50:56 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 21:36:29 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	ft_bubblesort(char **str)
 {
-	int i;
-	int sort = 0;
-	char *temp;
+	int		i;
+	int		sort;
+	char	*temp;
 
+	sort = 0;
 	while (!sort)
 	{
 		i = 0;

@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 19:17:59 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/12 09:15:49 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 21:48:28 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		ft_isdir(char *argv)
 	struct stat		buf;
 
 	stat(argv, &buf);
-	if(S_ISDIR(buf.st_mode))
-   		return (1);
+	if (S_ISDIR(buf.st_mode))
+		return (1);
 	else
-   		return (0);		
+		return (0);
 }

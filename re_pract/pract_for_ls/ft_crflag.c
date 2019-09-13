@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 15:26:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/11 15:53:22 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 22:12:10 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)
 
 			i = 0;
 			ft_otherdir(".", find_data);
-			ft_recurstore(find_data->dir_strings, find_data);
+			ft_recurstore(find_data->dr, find_data);
 		}			
 	}
 	printf("%s\n", find_data->big_r[x]);

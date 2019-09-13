@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/11 08:47:47 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 22:13:59 by nlunga           ###   ########.fr       */
 /*   Updated: 2019/09/06 10:15:40 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -42,10 +42,10 @@ int	main(int argc, char **argv)
 		{
 			c = 0;
 			ft_otherdir(".", find_data);
-			while (find_data->dir_strings[c] != NULL)
+			while (find_data->dr[c] != NULL)
 			{
-				ft_putendl(find_data->dir_strings[c]);
-				ft_strdel(&find_data->dir_strings[c]);
+				ft_putendl(find_data->dr[c]);
+				ft_strdel(&find_data->dr[c]);
 				c++;
 			}
 		}
