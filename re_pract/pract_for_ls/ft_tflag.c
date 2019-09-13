@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 09:10:26 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/12 13:21:06 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 16:58:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ void	ft_store_time(const char *path, d_list *find_data, int x)
 
 	stat(path, &da_mtime);
 	//find_data->time[x] = da_mtime.st_mtime;
-	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
+//1	//find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
+	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtimespec.tv_nsec));
+	find_data->time[x] = da_mtime.st_mtimespec.tv_nsec;
 //	find_data->mtime[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
 	find_data->mtime[x] = ft_strdup(ft_strjoin(find_data->mfile[x], path));
 	ft_strdel(&find_data->mfile[x]);
@@ -124,7 +126,7 @@ void	ft_tsort(char **path, d_list *find_data)
 		if (find_data->mtime[x] != NULL)
 			x++;
 	}
-	ft_bubblesort(find_data->mtime);
+//	ft_bubblesort(find_data->mtime);
 	bubble_sort(find_data->time, x);
 }
 
@@ -168,8 +170,8 @@ void	ft_tflag(int argc, char **argv, d_list *find_data)
 	//	printf("argv: %s, find_data: %s\n", argv[0], find_data->mtime[0]);
 		while (find_data->dir_strings[i] != NULL && argv)
 		{
-			printf("%s\n", find_data->mtime[i]);
-			printf("%d\n", find_data->time[i]);
+//			printf("%s\n", find_data->mtime[i]);
+			printf(">>%d\n", find_data->time[i]);
 //			ft_putendl(ft_tsort(find_data->dir_strings, find_data));
 			i++;
 		}
