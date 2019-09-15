@@ -18,7 +18,6 @@ void	ft_getgid(struct stat fileinfo)
 
 	if ((gwd = getgrgid(fileinfo.st_gid)))
 	{
-		ft_putstr(gwd->gr_name);
-		ft_putchar(' ');
+		ft_putstr_add(gwd->gr_name, ' ');
 	}
 }

@@ -40,13 +40,12 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 				if (lstat(f->dr[j], &fileinfo) < 0)
 					return (1);
 				da_perm(fileinfo);
-				ft_putnbr(fileinfo.st_nlink);
-				ft_putchar(' ');
+				ft_putnbr_add(fileinfo.st_nlink, '\t');
 				ft_getuid(fileinfo);
 				ft_getgid(fileinfo);
 				ft_putchar(' ');
-				ft_putnbr(fileinfo.st_size);
-				ft_putstr("  ");
+				ft_putnbr_add(fileinfo.st_size, '\t');
+				ft_putstr("   ");
 				ft_m_time(f->dr[j]);
 				printf("%s\n", f->dr[j]);
 				ft_strdel(&f->dr[j]);
@@ -71,10 +70,10 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 							return (1);
 						}
 						da_perm(fileinfo);
-						printf("%d ", fileinfo.st_nlink);
+						printf("%ld ", fileinfo.st_nlink);
 						ft_getuid(fileinfo);
 						ft_getgid(fileinfo);
-						printf(" %lld ", fileinfo.st_size);
+						printf(" %ld ", fileinfo.st_size);
 						ft_m_time(f->dr[d]);
 						printf("%s\n", f->dr[d]);
 						ft_strdel(&f->dr[d]);
@@ -86,10 +85,10 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 					if (lstat(argv[i], &fileinfo) < 0)
 						return (1);
 					da_perm(fileinfo);
-					printf("%d ", fileinfo.st_nlink);
+					printf("%ld ", fileinfo.st_nlink);
 					ft_getuid(fileinfo);
 					ft_getgid(fileinfo);
-					printf(" %lld ", fileinfo.st_size);
+					printf(" %ld ", fileinfo.st_size);
 					ft_m_time(argv[i]);
 					printf("%s\n", argv[i]);
 				}

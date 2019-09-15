@@ -53,9 +53,9 @@ void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)
 	{
 		if (argc == 2)
 		{
-			int i;
+		//	int i;
 
-			i = 0;
+		//	i = 0;
 			ft_otherdir(".", find_data);
 			ft_recurstore(find_data->dr, find_data);
 		}			

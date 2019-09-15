@@ -72,11 +72,13 @@ void	ft_store_time(const char *path, d_list *find_data, int x)
 	//char			*str;
 	//int			i;
 
-	stat(path, &da_mtime);
-	//find_data->time[x] = da_mtime.st_mtime;
-//1	//find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
-	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtimespec.tv_nsec));
-	find_data->time[x] = da_mtime.st_mtimespec.tv_nsec;
+	lstat(path, &da_mtime);
+	find_data->time[x] = da_mtime.st_mtime;
+	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
+//1111112222222	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtimespec.tv_nsec));
+//1111112222222	find_data->time[x] = da_mtime.st_mtimespec.tv_nsec;
+/*	find_data->mfile[x] = ft_strdup(ft_itoa(da_mtime.st_mtim));
+	find_data->time[x] = da_mtime.st_mtim;*/
 //	find_data->mtime[x] = ft_strdup(ft_itoa(da_mtime.st_mtime));
 	find_data->mtime[x] = ft_strdup(ft_strjoin(find_data->mfile[x], path));
 	ft_strdel(&find_data->mfile[x]);

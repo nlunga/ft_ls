@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getuid.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_add.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: innocent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/22 16:13:23 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/23 08:36:01 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/15 11:34:06 by innocent          #+#    #+#             */
+/*   Updated: 2019/09/15 11:35:48 by innocent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "libft.h"
 
-void	ft_getuid(struct stat fileinfo)
+void	ft_putnbr_add(int nb, char c)
 {
-	struct passwd	*pwd;
-
-	if ((pwd = getpwuid(fileinfo.st_uid)))
-	{
-		ft_putstr_add(pwd->pw_name, ' ');
-	}
+	ft_putnbr(nb);
+	ft_putchar(c);
 }
