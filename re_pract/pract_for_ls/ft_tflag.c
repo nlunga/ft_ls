@@ -159,6 +159,48 @@ void	ft_tsort(char **path, d_list *find_data)
 	}
 }
 */
+
+int    ft_st_time(char *path, char *path1)
+{
+    struct stat buf;
+    struct stat buf1;
+    //ft_m_time(path);
+    stat(path, &buf);
+    stat(path1, &buf1);
+    return(buf.st_mtime < buf1.st_mtime);
+}
+
+void    suffle_time(char **paths)
+{
+    int     i;
+    int     sort;
+    char    *temp;
+
+    sort = 0;
+    while (!sort)
+    {
+        i = 0;
+        while (paths[i + 1])
+        {
+            if (ft_st_time(paths[i], paths[i + 1]))
+            {
+                temp = paths[i];
+                paths[i] = paths[i + 1];
+                paths[i + 1] = temp;
+            }
+            i++;
+        }
+        i = 0;
+        sort = 1;
+       	while (paths[i + 1] && sort)
+		{
+			if (ft_st_time(paths[i], paths[i + 1]))
+				sort = 0;
+			i++;
+		}
+    }
+}
+
 void	ft_tflag(int argc, char **argv, d_list *find_data)
 {
 	int i;
@@ -167,9 +209,10 @@ void	ft_tflag(int argc, char **argv, d_list *find_data)
 	if (argc == 2)
 	{
 		ft_otherdir(".", find_data);
-		ft_tsort(find_data->dr, find_data);
+///...		ft_tsort(find_data->dr, find_data);
 	//	ft_store_time(find_data->dir_strings[1], find_data, 0);
 	//	printf("argv: %s, find_data: %s\n", argv[0], find_data->mtime[0]);
+		suffle_time(find_data->dr);
 		while (find_data->dr[i] != NULL && argv)
 		{
 //			printf("%s\n", find_data->mtime[i]);
