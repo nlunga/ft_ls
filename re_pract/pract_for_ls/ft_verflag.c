@@ -6,13 +6,17 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 12:58:12 by nlunga            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/23 14:39:36 by nlunga           ###   ########.fr       */
+=======
+/*   Updated: 2019/09/13 22:13:19 by nlunga           ###   ########.fr       */
+>>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_verflag(char **argv, t_flags *m_flags)
+void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 {
 	int	i;
 	int	j;
@@ -23,24 +27,64 @@ void	ft_verflag(char **argv, t_flags *m_flags)
 	m_flags->cr_flag = 0;
 	
 	i = 1;
-	while (argv[i])
+	if (ft_check_flags(argc, argv))
 	{
-		j = 1;
-		while (argv[i][j] != '\0')
+		while (argv[i])
 		{
-			if (argv[i][j] == 'l')
-				m_flags->l_flag = 1;
-			else if (argv[i][j] == 'a')
-				m_flags->a_flag = 1;
-			else if (argv[i][j] == 'r')
-				m_flags->r_flag = 1;
-			else if (argv[i][j] == 't')
-				m_flags->t_flag = 1;
-			else if (argv[i][j] == 'R')
-				m_flags->cr_flag = 1;
-			j++;
+			j = 1;
+			while (argv[i][j] != '\0')
+			{
+				if (argv[i][j] == 'l')
+					m_flags->l_flag = 1;
+				else if (argv[i][j] == 'a')
+					m_flags->a_flag = 1;
+				else if (argv[i][j] == 'r')
+					m_flags->r_flag = 1;
+				else if (argv[i][j] == 't')
+					m_flags->t_flag = 1;
+				else if (argv[i][j] == 'R')
+					m_flags->cr_flag = 1;
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
 	//return ; //(0);
+}
+
+void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data)
+{
+	int i;
+	int c;
+
+	i = 1;
+	ft_verflag(argc, argv, m_flags);
+	if (m_flags->l_flag == 1)
+		ft_lflag(argc, argv, m_flags, find_data);
+	if (m_flags->a_flag == 1)
+		ft_aflag(argc, argv, m_flags, find_data);
+	if (m_flags->r_flag == 1)
+		ft_rflag(argc, argv, m_flags, find_data);
+	if (m_flags->cr_flag == 1)
+		ft_crflag(argc, argv, m_flags, find_data);
+	if (m_flags->t_flag == 1)
+		ft_tflag(argc, argv, find_data);
+	if (!ft_check_flags(argc, argv))//else
+	{
+		c = 0;
+		while (argv[i] != NULL)
+		{
+			ft_putstr(argv[i]);
+			ft_putendl(":");
+			ft_otherdir(argv[i], find_data);
+			while (find_data->dr[c] != NULL)
+			{
+				ft_putendl(find_data->dr[c]);
+				ft_strdel(&find_data->dr[c]);
+				c++;
+			}
+			ft_putendl(" ");
+			i++;
+		}
+	}
 }

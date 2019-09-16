@@ -6,40 +6,23 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 19:17:59 by nlunga            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/23 14:48:03 by nlunga           ###   ########.fr       */
+=======
+/*   Updated: 2019/09/13 21:48:28 by nlunga           ###   ########.fr       */
+>>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-/*int		ft_isdir(int argc, char **argv)
-{
-	struct stat		buf;
-	int				i;
-
-	if (ft_check_flags(argc, argv) == 0)
-	{
-		i = 1;
-		while (argv[i] != NULL)
-		{
-			stat(argv[i], &buf);
-			if(S_ISDIR(buf.st_mode))
-   				return (1);
-			else
-   				return (0);		
-   			i++;
-		}
-	}
-	return (0);
-}*/
 
 int		ft_isdir(char *argv)
 {
 	struct stat		buf;
 
 	stat(argv, &buf);
-	if(S_ISDIR(buf.st_mode))
-   		return (1);
+	if (S_ISDIR(buf.st_mode))
+		return (1);
 	else
-   		return (0);		
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 08:38:09 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/29 09:41:24 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/13 22:48:35 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	ft_out_of_scope(int argc, char **argv)
 			j = 1;
 			while (argv[i][j] != '\0')
 			{
-				if (argv[i][j] != 'l' && argv[i][j] != 'a' && argv[i][j] != 'r' && argv[i][j] != 't' && argv[i][j] != 'R')
+				if (argv[i][j] != 'l' && argv[i][j] != 'a'\
+						&& argv[i][j] != 'r' && argv[i][j] != 't'\
+						&& argv[i][j] != 'R')
 				{
 					printf("ft_ls: illegal option -- %c", argv[i][j]);
 				}

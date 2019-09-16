@@ -22,9 +22,9 @@ int ft_flags(int argc, char **argv)
  
     printf("Information for %s\n",argv[2]);
     printf("---------------------------\n");
-    printf("File Size: \t\t%lld bytes\n",fileStat.st_size);
-    printf("Number of Links: \t%d\n",fileStat.st_nlink);
-    printf("File inode: \t\t%lld\n",fileStat.st_ino);
+    printf("File Size: \t\t%ld bytes\n",fileStat.st_size);
+    printf("Number of Links: \t%ld\n",fileStat.st_nlink);
+    printf("File inode: \t\t%ld\n",fileStat.st_ino);
  
     printf("File Permissions: \t");
     printf( (S_ISDIR(fileStat.st_mode)) ? "d" : "-");

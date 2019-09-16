@@ -6,7 +6,11 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/23 14:41:28 by nlunga           ###   ########.fr       */
+=======
+/*   Updated: 2019/09/13 22:45:30 by nlunga           ###   ########.fr       */
+>>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +40,42 @@ typedef struct		s_flags
 typedef struct		c_list
 {
 	char			*current;
-	char			*strings[2019];
+	char			*strings[2018];
 	char			*path;
-	char			*dir_strings[2018];
+	char			*mtime[2021];
+	int				time[2021];
+	char			*mfile[2021];
+	char			*dr[2019];
+	char			*big_r[20000];
 	struct c_list	*next;
 }					d_list;
 
-void				ft_otherdir(char *argv, d_list *find_data);
-void				ft_a_otherdir(char *argv, d_list *find_data);
-void				ft_currentdir(d_list *find_data);
-void				ft_a_currentdir(/*int argc, char **argv*/d_list *find_data9);
-//void				ft_display_owner_perm(fileStat.st_mode);
-int					ft_check_flags(int argc, char **argv);
-//int					ft_isdir(int argc, char **argv);
-int					ft_isdir(char *argv);
-int					ft_conflags(int argc, char **argv);
-int					ft_reconflags(int argc, char **argv);
-int					ft_check_multi(char *str, char c, int i);
-int					ft_lflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
-void				ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
-int					ft_flags(int argc , char ** argv);
-int					ft_out_of_scope(int argc, char **argv);
-//int					ft_permissions(/*int argc,*/ char **argv);
-//void					ft_permissions(void);
-void				ft_verflag(char	**argv, t_flags *m_flags);
-void				da_perm(struct stat fileinfo);
-void				ft_getuid(struct stat fileinfo);
-void				ft_getgid(struct stat fileinfo);
-void				ft_m_time(const char *path);
+void	ft_otherdir(char *argv, d_list *find_data);
+void	ft_aotherdir(char *argv, d_list *find_data);
+void	ft_currentdir(d_list *find_data);
+void	ft_bubblesort(char **str);
+void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+//void	ft_display_owner_perm(fileStat.st_mode);
+int		ft_check_flags(int argc, char **argv);
+//int	ft_isdir(int argc, char **argv);
+int		ft_isdir(char *argv);
+int		ft_conflags(int argc, char **argv);
+int		ft_reconflags(int argc, char **argv);
+int		ft_check_multi(char *str, char c, int i);
+int		ft_lflag(int argc, char **argv, t_flags *mf, d_list *f);
+void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+void	ft_tflag(int argc, char **argv, d_list *find_data);
+//void	ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data);
+void	ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+int		ft_flags(int argc, char **argv);
+int		ft_out_of_scope(int argc, char **argv);
+//int	ft_permissions(/*int argc,*/ char **argv);
+//void	ft_permissions(void);
+void	ft_verflag(int argc, char	**argv, t_flags *m_flags);
+void	da_perm(struct stat fileinfo);
+void	ft_getuid(struct stat fileinfo);
+void	ft_getgid(struct stat fileinfo);
+void	ft_m_time(const char *path);
+char	**ft_sort(int argc, void (*ft_currentdir)(d_list), d_list *find_data);
 #endif

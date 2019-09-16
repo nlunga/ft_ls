@@ -6,7 +6,11 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 14:00:28 by nlunga            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/08/23 14:42:38 by nlunga           ###   ########.fr       */
+=======
+/*   Updated: 2019/09/02 08:58:01 by nlunga           ###   ########.fr       */
+>>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +28,7 @@ int	ft_check_flags(int argc, char **argv)
 		while (argv[i])
 		{
 			if (argv[i][0] != '-')
-				break;
+				break ;
 			if (argv[i][0] == '-')
 			{
 				return (1);
@@ -34,7 +38,3 @@ int	ft_check_flags(int argc, char **argv)
 	}
 	return (0);
 }
-
-// The last option specified in each pair determines the output format
-// By default, the ls command displays all information in alphabetic order by file name
-// When the ls command displays the contents of a directory, it does not show entries for files whose names begin with a . (dot) unless you use the -a or -A flag
