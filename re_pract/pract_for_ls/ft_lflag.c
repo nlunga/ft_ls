@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 20:14:28 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/13 22:10:01 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/16 16:26:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 							return (1);
 						}
 						da_perm(fileinfo);
-						printf("%ld ", fileinfo.st_nlink);
+						printf("%hu ", fileinfo.st_nlink);
 						ft_getuid(fileinfo);
 						ft_getgid(fileinfo);
-						printf(" %ld ", fileinfo.st_size);
+						printf(" %lld ", fileinfo.st_size);
 						ft_m_time(f->dr[d]);
 						printf("%s\n", f->dr[d]);
 						ft_strdel(&f->dr[d]);
@@ -85,10 +85,10 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 					if (lstat(argv[i], &fileinfo) < 0)
 						return (1);
 					da_perm(fileinfo);
-					printf("%ld ", fileinfo.st_nlink);
+					printf("%hu ", fileinfo.st_nlink);
 					ft_getuid(fileinfo);
 					ft_getgid(fileinfo);
-					printf(" %ld ", fileinfo.st_size);
+					printf(" %lld ", fileinfo.st_size);
 					ft_m_time(argv[i]);
 					printf("%s\n", argv[i]);
 				}
