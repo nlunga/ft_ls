@@ -6,11 +6,8 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:47:31 by nlunga            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/08/23 14:41:28 by nlunga           ###   ########.fr       */
-=======
+/*   Updated: 2019/09/18 16:14:39 by nlunga           ###   ########.fr       */
 /*   Updated: 2019/09/13 22:45:30 by nlunga           ###   ########.fr       */
->>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +61,8 @@ int		ft_reconflags(int argc, char **argv);
 int		ft_check_multi(char *str, char c, int i);
 int		ft_lflag(int argc, char **argv, t_flags *mf, d_list *f);
 void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
-void	ft_tflag(int argc, char **argv, d_list *find_data);
+//void	ft_tflag(int argc, char **argv, d_list *find_data);
+char	**ft_tflag(char *dir, char **array, int n);
 //void	ft_crflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
 void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data);
 void	ft_aflag(int argc, char **argv, t_flags *m_flags, d_list *find_data);
