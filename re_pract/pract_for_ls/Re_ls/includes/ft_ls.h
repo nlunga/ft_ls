@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/30 13:23:01 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/10/01 16:58:16 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_dir
 	char		*name;
 	char		*path;
 	int			mtime;
-}				t_dir[1024];
+}				t_dir;
 
 typedef struct	s_flags
 {
@@ -39,14 +39,20 @@ typedef struct	s_flags
 	int			t_flag;
 }				t_flags;
 
-void			ft_opendir(char *path, t_dir *data);
-void			ft_bubblesort(char **str);
+//void			ft_opendir(char *path, t_dir *data);
+void			ft_opendir(char *path, t_dir data[]);
+//void			ft_bubblesort(char **str);
+void			ft_bubblesort(t_dir order[]);
 int				ft_check_flags(char **str);
 int				ft_isdir(char *path);
 void			ft_m_time(const char *path);
 void			ft_perm(struct stat fileinfo);
 void			ft_getid(struct stat buf);
 int				ft_arrlen(char **arr);
+int				ft_structlen(t_dir gets[]);
+void			ft_display(t_dir test[], int n);
+void			ft_displayall(t_dir test[], int n);
+void			ft_displayrev(t_dir test[], int n);
 void			ft_assign(char **str, t_flags *m_flags);
 void			ft_verflag(char **str, t_flags *m_flags);
 void			ft_lflag(char **path, t_flags *mflag, t_dir *data);

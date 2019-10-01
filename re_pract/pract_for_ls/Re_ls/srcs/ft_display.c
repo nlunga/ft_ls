@@ -1,37 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.c                                            :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/01 16:57:48 by nlunga           ###   ########.fr       */
+/*   Created: 2019/10/01 10:07:36 by nlunga            #+#    #+#             */
+/*   Updated: 2019/10/01 16:58:26 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/ft_ls.h"
 
-int	main(int ac, char **av)
+void	ft_display(t_dir test[], int n)
 {
 	int		i;
-	int		size = 1024;
-	t_dir	start[size];
-	t_flags	*mflag;
 
-	if (!(mflag = (t_flags *)malloc(sizeof(t_flags))))
-		return (0);
 	i = 0;
-	if (ac == 1 && av)
+	ft_bubblesort(test);
+	while (i < n)
 	{
-		ft_opendir(".", start);
-		ft_display(start, ft_structlen(start));
+		if (*test[i].name != '.')
+		{
+			ft_putendl(test[i].name);
+			ft_strdel(&test[i].name);
+		}
+		i++;
 	}
-	else
+}
+
+void	ft_displayall(t_dir test[], int n)
+{
+	int		i;
+
+	i = 0;
+	ft_bubblesort(test);
+	while (i < n)
 	{
-	//	ft_lflag(av, mflag, start);
+		ft_putendl(test[i].name);
+		ft_strdel(&test[i].name);
+		i++;
 	}
-	free(mflag);
-//	sleep(10);
-	return (0);
+}
+
+void	ft_displayrev(t_dir test[], int n)
+{
+	n--;
+	while (n >= 0)
+	{
+		ft_putendl(test[n].name);
+		ft_strdel(&test[n].name);
+		n--;
+	}
 }

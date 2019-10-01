@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 10:35:18 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/30 13:12:03 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/10/01 10:16:57 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@ int	ft_arrlen(char **arr)
 
 	i = 0;
 	while (arr[i] != NULL)
+		i++;
+	return (i);
+}
+
+int	ft_structlen(t_dir gets[])
+{
+	int	i;
+
+	i = 0;
+	while (gets[i].name != NULL)
 		i++;
 	return (i);
 }
