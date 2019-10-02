@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/01 16:58:16 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/10/02 14:47:30 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct	s_flags
 
 //void			ft_opendir(char *path, t_dir *data);
 void			ft_opendir(char *path, t_dir data[]);
-//void			ft_bubblesort(char **str);
 void			ft_bubblesort(t_dir order[]);
 int				ft_check_flags(char **str);
 int				ft_isdir(char *path);
