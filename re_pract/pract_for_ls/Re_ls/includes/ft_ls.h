@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/02 14:52:15 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/10/03 16:17:00 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct	s_flags
 //void			ft_opendir(char *path, t_dir *data);
 void			ft_opendir(char *path, t_dir data[]);
 void			ft_bubblesort(t_dir order[]);
+void			ft_get_time(t_dir time[]);
+void			ft_timesort(t_dir da_time[]);
+void			ft_fixtime(t_dir sane[]);
 int				ft_check_flags(char **str);
 int				ft_isdir(char *path);
 void			ft_m_time(const char *path);

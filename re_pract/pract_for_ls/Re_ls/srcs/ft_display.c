@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 10:07:36 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/02 14:52:22 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/10/03 16:16:47 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	ft_display(t_dir test[], int n)
 	int		i;
 
 	i = 0;
-	ft_bubblesort(test);
+//	ft_bubblesort(test);
+//	ft_timesort(test);
+//	ft_ttt(test);
 	while (i < n)
 	{
 		if (*test[i].name != '.')

@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/02 18:19:29 by innocent         ###   ########.fr       */
+/*   Updated: 2019/10/03 16:16:52 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	ft_store_time(char **path, char **path1, char *str)
 	{
 		if (buf.st_mtime == buf1.st_mtime)
 		{
-//			if (buf.st_mtimespec.tv_nsec < buf1.st_mtimespec.tv_nsec)
-			if (buf.st_mtim.tv_sec < buf1.st_mtim.tv_sec)
+			if (buf.st_mtimespec.tv_nsec < buf1.st_mtimespec.tv_nsec)
+		//	if (buf.st_mtim.tv_sec < buf1.st_mtim.tv_sec)
 				ft_swap_str(path, path1);
 		}
 	}
@@ -107,4 +107,95 @@ char	**ft_tflag(char *dir, char **array, int n)
 	}
 	free(str);
 	return (array);
+}
+
+void	ft_get_time(t_dir time[])
+{
+	int			i;
+	struct stat	buf;
+
+	i = 0;
+	while (time[i].name != NULL)
+	{
+		stat(time[i].name, &buf);
+		time[i].mtime = buf.st_mtime;
+		i++;
+	}
+}
+
+void	ft_timesort(t_dir da_time[])
+{
+	int		i;
+	int		sort;
+	char	*temp;
+
+//	ft_get_time(da_time);
+	sort = 0;
+	while (!sort)
+	{
+		i = 0;
+		while (da_time[i + 1].name)
+		{
+			if (da_time[i].mtime < da_time[i + 1].mtime)
+			{
+				temp = da_time[i].name;
+				da_time[i].name = da_time[i + 1].name;
+				da_time[i + 1].name = temp;
+			}
+			i++;
+		}
+		i = 0;
+		sort = 1;
+		while (da_time[i + 1].name && sort)
+		{
+			if (ft_strcmp(da_time[i].name, da_time[i + 1].name) > 0)
+				sort = 0;
+			i++;
+		}
+	}
+	
+}
+
+void	ft_fixtime(t_dir sane[])
+{
+	int			i;
+	int			sort;
+	struct stat	buf;
+	char		*temp;
+
+	i = 0;
+	while (sane[i].name != NULL)
+	{
+		lstat(sane[i].name, &buf);
+		sane[i].mtime = buf.st_mtime;
+		i++;
+	}
+//	i = 0;
+
+//	ft_get_time(da_time);
+	sort = 0;
+	while (!sort)
+	{
+		i = 0;
+		while (sane[i + 1].name)
+		{
+			if (sane[i].mtime < sane[i + 1].mtime)
+			{
+				temp = sane[i].name;
+				sane[i].name = sane[i + 1].name;
+				sane[i + 1].name = temp;
+			}
+			i++;
+		}
+		i = 0;
+		sort = 1;
+		while (sane[i + 1].name && sort)
+		{
+			//if (ft_strcmp(da_time[i].name, da_time[i + 1].name) > 0)
+			if (sane[i].mtime < sane[i + 1].mtime)
+				sort = 0;
+			i++;
+		}
+	}
+
 }
