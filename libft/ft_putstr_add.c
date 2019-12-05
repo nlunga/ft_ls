@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_owner.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_add.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: innocent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/02 09:14:57 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/02 09:22:00 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/15 10:57:15 by innocent          #+#    #+#             */
+/*   Updated: 2019/09/15 10:57:19 by innocent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "libft.h"
 
-void	ft_display_owner_perm(fileStat.st_mode)
+void    ft_putstr_add(char const *str, char c)
 {
-	printf( (fileStat.st_mode & S_IRUSR) ? "r" : "-");
-	printf( (fileStat.st_mode & S_IWUSR) ? "w" : "-");
-	printf( (fileStat.st_mode & S_IXUSR) ? "x" : "-");
+    ft_putstr(str);
+    ft_putchar(c);
 }

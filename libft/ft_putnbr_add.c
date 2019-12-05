@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_aflag.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_add.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: innocent <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 11:20:55 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/29 12:30:41 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/15 11:34:06 by innocent          #+#    #+#             */
+/*   Updated: 2019/09/15 11:35:48 by innocent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_aflag(int argc, char **argv)
+#include "libft.h"
+
+void	ft_putnbr_add(int nb, char c)
 {
-	if (argc == 2)
-		ft_a_currentdir(argv);
-	else
-	{
-		ft_a_otherdir(argv);
-	}
+	ft_putnbr(nb);
+	ft_putchar(c);
 }

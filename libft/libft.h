@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 08:38:23 by nlunga            #+#    #+#             */
-/*   Updated: 2019/08/12 12:19:11 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/30 09:07:31 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void				ft_strclr(char *s);
 void				ft_swap(int *a, int *b);
 size_t				ft_strcspn(const char *s, const char *reject);
 char				*ft_strrev(char *str);
+char				*ft_addpath(char *old_path, char *new_path);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strmap(char const *s, char (*f)(char));
@@ -77,6 +78,8 @@ char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(const char *str);
 void				ft_putendl(char const *s);
+void				ft_putstr_add(char const *str, char c);
+void				ft_putnbr_add(int nb, char c);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);

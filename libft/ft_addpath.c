@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_multi.c                                   :+:      :+:    :+:   */
+/*   ft_addpath.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/26 19:58:23 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/26 19:59:58 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/30 09:01:50 by nlunga            #+#    #+#             */
+/*   Updated: 2019/09/30 09:08:25 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "libft.h"
 
-int             ft_check_multi(char *str, char c, int i)
+char	*ft_addpath(char *old_path, char *new_path)
 {
-        int     j;
-
-        j = 0;
-        while(j < i)
-        {
-                if (str[j] == c)
-                        return (0);
-                ++j;
-        }
-        return (1);
+	char	*path;
+	
+	if(ft_strcmp(old_path, new_path) == 0)
+		return (new_path);
+	path = ft_strjoin(ft_strjoin(old_path, "/"), new_path);
+	return (path);
 }

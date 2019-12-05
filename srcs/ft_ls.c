@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/02 15:29:23 by nlunga            #+#    #+#             */
-/*   Updated: 2019/07/08 15:28:17 by nlunga           ###   ########.fr       */
+/*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
+/*   Updated: 2019/10/03 16:16:53 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./../includes/ft_ls.h"
 
-#include "libft/libft.h"
-#include "ft_libft/ft_libft.h"
-
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	DIR				*dir;
-	struct dirent	*sd;
+	int		size = 1024;
+	t_dir	start[size];
+	t_flags	*mflag;
 
-	dir = opendir(".");
-	if (dir == NULL)
+	if (!(mflag = (t_flags *)malloc(sizeof(t_flags))))
+		return (0);
+	if (ac == 1 && av)
 	{
-		printf("Error! unable to open directory \n");
-		exit(1);
+		ft_opendir(".", start);
+		ft_fixtime(start);
+		ft_display(start, ft_structlen(start));
 	}
-
-	while ((sd = readdir(dir)) != NULL)
+	else
 	{
-		printf(">> %s\n", sd->d_name);
+	//	ft_lflag(av, mflag, start);
 	}
-	closedir(dir);
-
+	free(mflag);
+//	sleep(10);
 	return (0);
 }
