@@ -1,0 +1,115 @@
+# Comment and uncomment/remove what you need / don't need
+
+# Compiled source #
+###################
+*.o
+*.exe
+*.class
+*.com
+*.dll
+*.so
+*out/production
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Text Editor -  VIM #
+######################
+# Swap Files
+*~
+*.swp
+*.swo
+
+# IDE - VS Code files #
+#######################
+.vscode
+.vscode/
+
+# IDE - IntelliJ files #
+########################
+.idea
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE - NetBeans files #
+########################
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# IDE - Eclipse files #
+#######################
+.settings/
+.classpath
+.project
+
+# Maven #
+#########
+target/
+
+# Web - Dependencies #
+################
+/node_modules
+
+# testing #
+###########
+/coverage
+
+# production #
+##############
+/build
+
+# Local Environment #
+#####################
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs and databases #
+######################
+# *.log
+# *.sql
+# *.sqlite
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+
+
+# Packages #
+###########
+# *.7z
+# *.dmg
+# *.gz
+# *.iso
+# *.rar
+# *.tar
+# *.zip
+#*.ear
+#*.sar
+
+
+# Java #
+########
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag
+*.jar 
+*.class
+
+# Misc. #
+#########
+
+

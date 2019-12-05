@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 08:38:23 by nlunga            #+#    #+#             */
-/*   Updated: 2019/06/27 13:48:16 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/08/12 12:19:11 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(const char *str);
 void				ft_putendl(char const *s);
+void				ft_putstr_add(char const *str, char c);
+void				ft_putnbr_add(int nb, char c);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
