@@ -6,12 +6,8 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 08:13:30 by nlunga            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/08/23 14:55:47 by nlunga           ###   ########.fr       */
-=======
 /*   Updated: 2019/09/13 22:13:59 by nlunga           ###   ########.fr       */
 /*   Updated: 2019/09/06 10:15:40 by nlunga           ###   ########.fr       */
->>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +67,8 @@ int	main(int argc, char **argv)
 		else
 		{
 			//ft_out_of_scope(argc, argv);
-<<<<<<< HEAD
-/*			ft_verflag(argv, m_flags);
-=======
 			
 			ft_verflag(argc, argv, m_flags);
->>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 			printf("Testing -l flag: %d\n", m_flags->l_flag);
 			printf("Testing -r flag: %d\n", m_flags->r_flag);
 			printf("Testing -a flag: %d\n", m_flags->a_flag);
