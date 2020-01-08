@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/03 16:16:53 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/01/08 16:04:25 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,41 @@ int	main(int ac, char **av)
 //	sleep(10);
 	return (0);
 }
+
+/*
+int ft_ls(char *name)
+{
+	//get
+	//print and stuff
+	if (-R)
+	{
+		foreach file in name_folder
+			ft_ls(file);
+			
+	}
+}
+
+
+
+void	ft_ls(char *name, t_flag *flag)
+{
+	//use dir functions to get info
+		//if not -a and ., don't add to array
+	//get stat for each of them, store in array
+	//sort
+	//reverse
+	//print (l or not)
+	if (-l)
+		print_long();
+	else
+		print_short();
+	if (-R)
+	{
+		for(int i=0; i < len_arr; i++)
+		{
+			if (!. && !.. )
+				ft_ls(name + / + arr[i].name, flag);
+		}
+	}
+}
+*/
