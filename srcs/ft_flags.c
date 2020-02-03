@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/30 13:45:19 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/03 10:51:26 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/ft_ls.h"
+#include <stdio.h>
 
 void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
@@ -20,9 +21,11 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 	struct stat	buf;
 
 	i = 0;
-	while (ft_check_flags(path))
+	while (ft_check_flags(&path[i]))
 		i++;
+	// printf("%d\n", i);
 	i++;
+	// printf("%d\n", i);
 	ft_verflag(path, mflag);
 	if (mflag->l_flag == 1)
 	{
@@ -35,15 +38,15 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 			if (ft_isdir(path[i]))
 			{
 				ft_opendir(path[i], data);
-				data[j]->path = ft_addpath(path[i], data[k]->name);
-				while (data[k]->name != NULL)
+				data[j].path = ft_addpath(path[i], data[k].name);
+				while (data[k].name != NULL)
 				{
-					if (lstat(data[j]->path, &buf) < 0)
+					if (lstat(data[j].path, &buf) < 0)
 						ft_putendl("lstat: FAILURE");
 				//		return (1);
 					ft_perm(buf);
 					ft_getid(buf);
-					ft_m_time(data[k]->name);
+					ft_m_time(data[k].name);
 					k++;
 				}
 				j++;

@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2020/01/08 16:04:25 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/03 10:15:34 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ int	main(int ac, char **av)
 	if (ac == 1 && av)
 	{
 		ft_opendir(".", start);
-		ft_fixtime(start);
+		// ft_fixtime(start);
 		ft_display(start, ft_structlen(start));
 	}
 	else
 	{
-	//	ft_lflag(av, mflag, start);
+		ft_lflag(av, mflag, start);
+		ft_display(start, ft_structlen(start));
 	}
 	free(mflag);
 //	sleep(10);

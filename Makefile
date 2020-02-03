@@ -3,28 +3,27 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nlunga <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/30 08:21:26 by nlunga            #+#    #+#              #
-#    Updated: 2019/08/05 16:30:02 by nlunga           ###   ########.fr        #
+#    Updated: 2020/02/03 09:38:36 by nlunga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_ls.a
 
-HEADERS = ft_ls.h
+HEADERS = ./includes/ft_ls.h
 
 FLAGS = -Wall -Werror -Wextra -c
 
-SRCS = ft_conflags.c ./ft_reconflags.c ./ft_a_currentdir.c ./ft_currentdir.c\
-	   ./ft_verflag.c ./ft_flags.c ./ft_isdir.c ./ft_otherdir.c\
-	   ./ft_check_flags.c ./ft_lflag.c ./ft_out_of_scope.c ./ft_check_multi.c\
-	   ./ft_get_time.c\
-	   #./get_owner.c\
-	   #./ft_permissions.c\
-	   #./ft_permissions.c ./ft_a_otherdir.c ./ft_a_currentdir.c ./ft_aflag.c\ 
+SRCS = ./srcs/ft_bubblesort.c ./srcs/ft_display.c ./srcs/ft_flags.c\
+	   ./srcs/ft_opendir.c ./srcs/ft_verflag.c ./srcs/permissions.c\
+	   ./srcs/tools.c 
 
-OBJS = $(SRCS:.c=.o)
+# OBJS = $(SRCS:.c=.o)
+OBJS = ./ft_bubblesort.o ./ft_display.o ./ft_flags.o\
+	   ./ft_opendir.o ./ft_verflag.o ./permissions.o\
+	   ./tools.o
 
 all: $(NAME)
 
@@ -42,7 +41,7 @@ fclean: clean
 re: fclean all
 
 lin:
-	gcc -o ft_ls ft_ls.c ft_ls.a ./libft/libft.a
+	gcc -o ft_ls ./srcs/ft_ls.c ft_ls.a ./libft/libft.a
 
 nnil: all lin clean
 
