@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/03 10:51:26 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/03 15:15:39 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,21 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 		{
 			//data[j]->pathft_addpath(, path[i]);
 			k = 0;
-			if (ft_isdir(path[i]))
+			printf("This  is path %s ", path[i]);
+			if (ft_isdir(path[i]) && (mflag->a_flag == 0))
 			{
 				ft_opendir(path[i], data);
 				data[j].path = ft_addpath(path[i], data[k].name);
 				while (data[k].name != NULL)
 				{
+					
+					printf("\n%d\n", k);
 					if (lstat(data[j].path, &buf) < 0)
 						ft_putendl("lstat: FAILURE");
 				//		return (1);
 					ft_perm(buf);
 					ft_getid(buf);
+					// printf("%s ", data[j].path);
 					ft_m_time(data[k].name);
 					k++;
 				}
