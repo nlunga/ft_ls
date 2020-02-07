@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 08:52:16 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 09:42:28 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
 	int			i;
 	int			j;
-	// int			k;
+	int			k;
 	struct stat	buf;
 
 	i = 0;
@@ -27,7 +27,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 	ft_verflag(path, mflag);
 	if (mflag->l_flag == 1)
 	{
-		if (i == 2)
+		if (i == 2 && path[i] == NULL)
 		{
 			j = 0;
 			ft_opendirsorted(".", data);
@@ -35,26 +35,27 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 			{
 				if (lstat(data[j].name, &buf) < 0)
 						return ;
-					// return (1);
 				ft_perm(buf);
 				ft_putnbr_add(buf.st_nlink, '\t');
 				ft_getid(buf);
+				ft_putnbr_add(buf.st_size, '\t');
 				ft_m_time(data[j].name);
 				printf("%s\n", data[j].name);
 				j++;
 			}
-		}/*else
+		}else
 		{
-			printf("This is a file/directory name: %s\n\n", path[i]);
 			// j = 0; This is the original
 			while (path[i] != NULL)
 			{
+				printf("This is a file/directory name: %s\n\n", path[i]);
 				j = 0;
-				//data[j]->pathft_addpath(, path[i]);
+				//data[j]->path = ft_addpath("./", path[i]);
 				// k = 0; This is The original
 				// printf("This  is path %s ", path[i]);
-				if (ft_isdir(path[i]) && (mflag->a_flag == 0))
+				if (ft_isdir(path[i]))
 				{
+					printf("hi %s\n",path[i]);
 					k = 0;
 					ft_opendir(path[i], data);
 					data[j].path = ft_addpath(path[i], data[k].name);
@@ -87,7 +88,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 				
 				i++;
 			}	
-		}*/
+		}
 		
 	}
 }
