@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 14:37:52 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 14:41:07 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
 	int			i;
 	int			j;
-	// int			k;
 	struct stat	buf;
 
 	i = 0;
@@ -52,12 +51,10 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 				{
 					ft_putstr_add(path[i], ':');
 					ft_putchar('\n');
-					// k = 0;
 					ft_opendirsorted(path[i], data);
 					while (data[j].name != NULL)
 					{
 						data[j].path = ft_addpath(ft_strjoin("./",path[i]), data[j].name);
-						// k++;
 						if (lstat(data[j].path, &buf) < 0){
 							perror(data[j].path);
 							return ;
@@ -71,8 +68,6 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 						j++;
 					}
 					ft_putchar('\n');
-					
-					// j++;
 				}else
 				{
 					if (lstat(path[i], &buf) < 0)
@@ -91,10 +86,3 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 		
 	}
 }
-
-
-// If there is a -l flag enter the code block
-// Scan until you find the end of the flags
-// Check if the next options is a directory or if it is a file
-// If it is a file apply the stats to the file
-// If it is a directory open the directory and apply the stats to the files in the directory
