@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 09:42:28 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 10:06:05 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 			}
 		}else
 		{
-			// j = 0; This is the original
+			j = 0;
 			while (path[i] != NULL)
 			{
 				printf("This is a file/directory name: %s\n\n", path[i]);
-				j = 0;
+				// j = 0;
 				//data[j]->path = ft_addpath("./", path[i]);
 				// k = 0; This is The original
 				// printf("This  is path %s ", path[i]);
@@ -57,33 +57,38 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 				{
 					printf("hi %s\n",path[i]);
 					k = 0;
-					ft_opendir(path[i], data);
+					ft_opendirsorted(path[i], data);
 					data[j].path = ft_addpath(path[i], data[k].name);
-					while (data[k].name != NULL)
+					while (data[j].name != NULL)
 					{
+						k++;
+						printf("%s\n",data[j].name);
+						printf("%s\n",data[j].path);
 						// printf("\nThis is the name %s", data[k].name);
 						// printf("\n%d", k);
 						// if (lstat(data[j].path, &buf) < 0) // Original I might wanna check it for debugging
+						printf("%d\n", stat(data[j].name, &buf));
 						if (lstat(data[j].name, &buf) < 0)
 							return ;
-						// return (1);
-						// printf("\nThis is j: %d\n", j);
-						// ft_perm(buf);
-						// ft_getid(buf);
-						// printf("%s ", data[j].path);
-						// ft_m_time(data[k].name);
-						k++;
+						ft_perm(buf);
+						ft_putnbr_add(buf.st_nlink, '\t');
+						ft_getid(buf);
+						ft_putnbr_add(buf.st_size, '\t');
+						ft_m_time(data[j].name);
+						printf("%s\n", data[j].name);
+						j++;
 					}
-					j++;
+					// j++;
 				}else
 				{
 					if (lstat(path[i], &buf) < 0)
 						return ;
-					// return (1);
 					ft_perm(buf);
+					ft_putnbr_add(buf.st_nlink, '\t');
 					ft_getid(buf);
-					printf("%s ", data[j].path);
-					ft_m_time(data[k].name);
+					ft_putnbr_add(buf.st_size, '\t');
+					ft_m_time(path[i]);
+					printf("%s\n", path[i]);
 				}
 				
 				i++;
