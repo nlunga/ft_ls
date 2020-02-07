@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 10:48:21 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 14:37:52 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
 	int			i;
 	int			j;
-	int			k;
+	// int			k;
 	struct stat	buf;
 
 	i = 0;
@@ -48,26 +48,16 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 			j = 0;
 			while (path[i] != NULL)
 			{
-				printf("This is a file/directory name: %s\n\n", path[i]);
-				// j = 0;
-				//data[j]->path = ft_addpath("./", path[i]);
-				// k = 0; This is The original
-				// printf("This  is path %s ", path[i]);
 				if (ft_isdir(path[i]))
 				{
-					printf("hi %s\n",path[i]);
-					k = 0;
+					ft_putstr_add(path[i], ':');
+					ft_putchar('\n');
+					// k = 0;
 					ft_opendirsorted(path[i], data);
-					data[j].path = ft_addpath(ft_strjoin("./",path[i]), data[k].name);
 					while (data[j].name != NULL)
 					{
-						k++;
-						printf("%s\n",data[j].name);
-						printf("%s\n",data[j].path);
-						// printf("\nThis is the name %s", data[k].name);
-						// printf("\n%d", k);
-						// if (lstat(data[j].path, &buf) < 0) // Original I might wanna check it for debugging
-						printf("%d\n", stat(data[j].path, &buf));
+						data[j].path = ft_addpath(ft_strjoin("./",path[i]), data[j].name);
+						// k++;
 						if (lstat(data[j].path, &buf) < 0){
 							perror(data[j].path);
 							return ;
@@ -80,6 +70,8 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 						printf("%s\n", data[j].name);
 						j++;
 					}
+					ft_putchar('\n');
+					
 					// j++;
 				}else
 				{
