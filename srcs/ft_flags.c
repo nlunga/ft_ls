@@ -6,12 +6,11 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 14:41:07 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 15:16:24 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/ft_ls.h"
-#include <stdio.h>
 
 void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
