@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 10:06:05 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 10:48:21 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 					printf("hi %s\n",path[i]);
 					k = 0;
 					ft_opendirsorted(path[i], data);
-					data[j].path = ft_addpath(path[i], data[k].name);
+					data[j].path = ft_addpath(ft_strjoin("./",path[i]), data[k].name);
 					while (data[j].name != NULL)
 					{
 						k++;
@@ -67,14 +67,16 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 						// printf("\nThis is the name %s", data[k].name);
 						// printf("\n%d", k);
 						// if (lstat(data[j].path, &buf) < 0) // Original I might wanna check it for debugging
-						printf("%d\n", stat(data[j].name, &buf));
-						if (lstat(data[j].name, &buf) < 0)
+						printf("%d\n", stat(data[j].path, &buf));
+						if (lstat(data[j].path, &buf) < 0){
+							perror(data[j].path);
 							return ;
+						}
 						ft_perm(buf);
 						ft_putnbr_add(buf.st_nlink, '\t');
 						ft_getid(buf);
 						ft_putnbr_add(buf.st_size, '\t');
-						ft_m_time(data[j].name);
+						ft_m_time(data[j].path);
 						printf("%s\n", data[j].name);
 						j++;
 					}
