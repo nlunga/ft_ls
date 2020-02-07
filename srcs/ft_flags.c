@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 11:59:52 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/04 13:49:02 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/07 08:52:16 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,33 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 {
 	int			i;
 	int			j;
-	int			k;
+	// int			k;
 	struct stat	buf;
 
 	i = 0;
 	while (ft_check_flags(&path[i]))
 		i++;
-	// printf("%d\n", i);
 	i++;
-	// printf("%d\n", i);
 	ft_verflag(path, mflag);
 	if (mflag->l_flag == 1)
 	{
 		if (i == 2)
 		{
-			printf("THis is in");
 			j = 0;
-			ft_opendir(".", data);
+			ft_opendirsorted(".", data);
 			while (data[j].name != NULL)
 			{
-				if (lstat(path[i], &buf) < 0)
+				if (lstat(data[j].name, &buf) < 0)
 						return ;
 					// return (1);
 				ft_perm(buf);
+				ft_putnbr_add(buf.st_nlink, '\t');
 				ft_getid(buf);
-				printf(">>%s ", data[j].name);
 				ft_m_time(data[j].name);
+				printf("%s\n", data[j].name);
+				j++;
 			}
-		}else
+		}/*else
 		{
 			printf("This is a file/directory name: %s\n\n", path[i]);
 			// j = 0; This is the original
@@ -88,7 +87,7 @@ void	ft_lflag(char **path, t_flags *mflag, t_dir *data)
 				
 				i++;
 			}	
-		}
+		}*/
 		
 	}
 }
