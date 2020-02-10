@@ -6,7 +6,7 @@
 #    By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/30 08:21:26 by nlunga            #+#    #+#              #
-#    Updated: 2020/02/03 09:38:36 by nlunga           ###   ########.fr        #
+#    Updated: 2020/02/10 14:52:19 by nlunga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ FLAGS = -Wall -Werror -Wextra -c
 
 SRCS = ./srcs/ft_bubblesort.c ./srcs/ft_display.c ./srcs/ft_flags.c\
 	   ./srcs/ft_opendir.c ./srcs/ft_verflag.c ./srcs/permissions.c\
-	   ./srcs/tools.c 
+	   ./srcs/tools.c ./srcs/ft_tflag.c
 
 # OBJS = $(SRCS:.c=.o)
 OBJS = ./ft_bubblesort.o ./ft_display.o ./ft_flags.o\
 	   ./ft_opendir.o ./ft_verflag.o ./permissions.o\
-	   ./tools.o
+	   ./tools.o ./ft_tflag.o
 
 all: $(NAME)
 

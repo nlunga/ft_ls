@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bubblesort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
-/*   Updated: 2019/10/03 16:16:52 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/10 15:18:20 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,18 @@ void	ft_bubblesort(t_dir order[])
 		}
 	}
 }
-
+/*
+void bubbleSort(int arr[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
+} 
+*/
 int		sort_time(char *file, char *file2)
 {
 	struct stat		buff;

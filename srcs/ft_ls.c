@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/07 15:14:57 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/10 13:27:06 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	main(int ac, char **av)
 	else
 	{
 		ft_lflag(av, mflag, start);
+		ft_timeflag(av, mflag, start);
 		// ft_display(start, ft_structlen(start));
 	}
 	free(mflag);
-	sleep(10);
+	// sleep(10);
 	return (0);
 }
 
@@ -48,8 +49,6 @@ int ft_ls(char *name)
 			
 	}
 }
-
-
 
 void	ft_ls(char *name, t_flag *flag)
 {
@@ -72,4 +71,5 @@ void	ft_ls(char *name, t_flag *flag)
 		}
 	}
 }
+
 */
