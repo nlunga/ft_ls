@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/10 15:19:37 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/11 15:12:29 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct	s_flags
 	int			t_flag;
 }				t_flags;
 
+void			printArray(int arr[], int size);
+void			numberSort(t_dir order[], int n);
 //void			ft_opendir(char *path, t_dir *data);
 void			ft_opendir(char *path, t_dir data[]);
 void			ft_opendirsorted(char *path, t_dir data[]);

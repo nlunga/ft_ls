@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/10 15:18:20 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/11 15:24:10 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,26 @@ void	ft_bubblesort(t_dir order[])
 		}
 	}
 }
-/*
-void bubbleSort(int arr[], int n) 
-{ 
-   int i, j; 
-   for (i = 0; i < n-1; i++)       
-  
-       // Last i elements are already in place    
-       for (j = 0; j < n-i-1; j++)  
-           if (arr[j] > arr[j+1]) 
-              swap(&arr[j], &arr[j+1]); 
+
+void	numberSort(t_dir order[], int n) 
+{
+	int	i;
+	int j;
+	
+	i = 0;
+	while (i < n-1)
+	{
+		j = 0;
+		while (j  < n-i-1)
+		{
+			if (order[j].mtime > order[j+1].mtime) 
+              ft_swap(&order[j].mtime, &order[j+1].mtime);
+			j++;
+		}
+		i++;
+	}
 } 
-*/
+
 int		sort_time(char *file, char *file2)
 {
 	struct stat		buff;
@@ -128,8 +136,11 @@ void	ft_get_time(t_dir time[])
 	i = 0;
 	while (time[i].name != NULL)
 	{
-		stat(time[i].name, &buf);
-		time[i].mtime = buf.st_mtime;
+		if (lstat(time[i].name, &buf) < 0){
+			perror(time[i].name);
+			return ;
+		}
+		time[i].mtime = buf.st_mtimespec.tv_nsec;
 		i++;
 	}
 }

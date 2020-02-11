@@ -6,11 +6,19 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/10 13:27:06 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/11 09:55:18 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../includes/ft_ls.h"
+
+void printArray(int arr[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        printf("%d ", arr[i]); 
+    printf("\n"); 
+}
 
 int	main(int ac, char **av)
 {
@@ -22,6 +30,9 @@ int	main(int ac, char **av)
 		return (0);
 	if (ac == 1 && av)
 	{
+		// numberSort(arr, n); 
+		// printf("Sorted array: \n"); 
+		// printArray(arr, n);
 		ft_opendir(".", start);
 		// ft_fixtime(start);
 		ft_display(start, ft_structlen(start));
