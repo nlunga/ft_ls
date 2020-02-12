@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:23:53 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/11 09:55:18 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 09:56:57 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int ac, char **av)
 {
 	int		size = 1024;
 	t_dir	start[size];
+	// t_dir	time[size];
 	t_flags	*mflag;
 
 	if (!(mflag = (t_flags *)malloc(sizeof(t_flags))))
@@ -39,7 +40,8 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_lflag(av, mflag, start);
+		// ft_lflag(av, mflag, start);
+		// ft_timeflag(av, mflag, start, time);
 		ft_timeflag(av, mflag, start);
 		// ft_display(start, ft_structlen(start));
 	}

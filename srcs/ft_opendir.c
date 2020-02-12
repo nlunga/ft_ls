@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:29:08 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/11 15:27:56 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 10:09:53 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	ft_opendir(char *path, t_dir data[])
 	closedir(dir);
 }
 
+// void	ft_opendirtime(char *path, t_dir data[], t_dir time[])
 void	ft_opendirtime(char *path, t_dir data[])
 {
 	DIR				*dir;
 	struct dirent	*sd;
+	struct stat		buf;
 	int				i;
 
 	i = 0;
@@ -45,29 +47,45 @@ void	ft_opendirtime(char *path, t_dir data[])
 	printf("This is before time sort:\n");
 	while ((sd = readdir(dir)) != NULL)
 	{
-		if (*sd->d_name != '.')
-		{
+		// if (*sd->d_name != '.')
+		// {
 			data[i].name = ft_strdup(sd->d_name);
+			if (lstat(data[i].name, &buf) < 0){
+				perror(data[i].name);
+				return ;
+			}
+			data[i].mtime = buf.st_mtimespec.tv_nsec;
+			// data[i].mtime = buf.st_mtime;
 			printf("%s\n", data[i].name);
-		}
+		// }
 		i++;
 	}
-	ft_get_time(data);
-	numberSort(data, ft_structlen(data));
-	// printf("the first %d\n", data[0].mtime);
-	// printf("the second %d\n", data[1].mtime);
-	// printf("the third %d\n", data[2].mtime);
-	// printf("the fouth %d\n", data[3].mtime);
-	// printf("\nThis is after time sort:\n");	
+	// ft_get_time(data);
+	numberSort(data, 13);
+	printf("\nThis is after data sort:\n");	
 	i = 0;
 	printf("test\n\n");
-	while(data[i].mtime)
+	while(data[i].name != NULL)
 	{
 		// printf(" that");
 		// printf("%s\n", data[i].name);
-		printf("%s\n", data[i].name);
+		// if (*data[i].name == '.' || ft_strcmp(data[i].name, "..") == 0)
+			// i++;
+		printf("this is: %s\n", data[i].name);
+		// printf("this is data %d : %d\n", i, data[i].mtime);
 		i++;
 	}
+	// i = 0;
+	// while (data[i].name)
+	// {
+	// 	if (lstat(data[i].name, &buf) < 0){
+	// 			perror(data[i].name);
+	// 			return ;
+	// 	}
+	// 	if (buf.st_mtimespec.tv_nsec == data[i].mtime)
+	// 		printf("this is time %d belong to %s: %d\n", i, data[i].name, data[i].mtime);
+	// 	i++;
+	// }
 	closedir(dir);
 }
 

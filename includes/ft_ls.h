@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/11 15:12:29 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 09:57:22 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void			numberSort(t_dir order[], int n);
 void			ft_opendir(char *path, t_dir data[]);
 void			ft_opendirsorted(char *path, t_dir data[]);
 void			ft_opendirtime(char *path, t_dir data[]);
+// void			ft_opendirtime(char *path, t_dir data[], t_dir time[]);
 void			ft_bubblesort(t_dir order[]);
 void			ft_get_time(t_dir time[]);
 void			ft_timesort(t_dir da_time[]);
@@ -64,5 +65,6 @@ void			ft_assign(char **str, t_flags *m_flags);
 void			ft_verflag(char **str, t_flags *m_flags);
 void			ft_lflag(char **path, t_flags *mflag, t_dir *data);
 void			ft_timeflag(char **path, t_flags *mflag, t_dir *data);
+// void			ft_timeflag(char **path, t_flags *mflag, t_dir *data, t_dir *time);
 
 #endif
