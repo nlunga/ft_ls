@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:29:08 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/12 10:59:03 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 11:56:16 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,29 @@ void	ft_opendir(char *path, t_dir data[])
 	closedir(dir);
 }
 
+//Time_t test
+
+static void printTime(time_t now) {
+	// time_t     now;
+    struct tm *ts;
+    char       buf[80];
+
+    /* Get the current time */
+    // now = time(NULL);
+
+    /* Format and print the time, "ddd yyyy-mm-dd hh:mm:ss zzz" */
+    ts = localtime(&now);
+    strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", ts);
+    puts(buf);
+
+    return ;
+}
+
+
+//End of time_t test
+
+
+
 // void	ft_opendirtime(char *path, t_dir data[], t_dir time[])
 void	ft_opendirtime(char *path, t_dir data[])
 {
@@ -54,14 +77,21 @@ void	ft_opendirtime(char *path, t_dir data[])
 				perror(data[i].name);
 				return ;
 			}
-			data[i].mtime = buf.st_mtimespec.tv_nsec;
-			// data[i].mtime = buf.st_mtime;
+			// data[i].mtime = buf.st_mtimespec.tv_nsec;
+			// data[i].file = buf;
+			data[i].mtime = buf.st_mtime;
 			printf("%s\n", data[i].name);
+			printf("%d\n", data[i].mtime);
+
+			//Print time
+			ft_putstr("Value of time: ");
+			printTime(data[i].mtime);
+			ft_putendl("");
 		// }
 		i++;
 	}
 	// ft_get_time(data);
-	numberSort(data, 13);
+	numberSort(data, ft_structlen(data));
 	printf("\nThis is after data sort:\n");	
 	i = 0;
 	printf("test\n\n");

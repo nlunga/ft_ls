@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 10:43:17 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/12 10:25:09 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 11:26:10 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ void	ft_bubblesort(t_dir order[])
 
 void	numberSort(t_dir order[], int n) 
 {
-	int	i;
-	int j;
+	int		i;
+	int 	j;
+	t_dir temp;
 	
 	i = 0;
 	while (i < n-1)
@@ -54,8 +55,15 @@ void	numberSort(t_dir order[], int n)
 		j = 0;
 		while (j  < n-i-1)
 		{
-			if (order[j].mtime > order[j+1].mtime) 
-              ft_swap(&order[j].mtime, &order[j+1].mtime);
+			if (order[j].mtime > order[j+1].mtime)  {
+            	printf("We should swap values: %d and %d\n", j, j + 1);
+				temp = order[j];
+				order[j] = order[j + 1];
+				order[j + 1] = temp;
+
+		
+			//   ft_swap(&order[j].mtime, &order[j+1].mtime);
+			}
 			j++;
 		}
 		i++;
