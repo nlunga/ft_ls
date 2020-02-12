@@ -59,18 +59,15 @@ void	ft_displayrev(t_dir test[], int n)
 
 void	ft_displaytime(t_dir test[], int n)
 {
-	int		i;
-
-	i = 0;
+	n--;
 	numberSort(test, n);
-	while (i < n)
+	while (n >= 0)
 	{
-		if (*test[i].name != '.')
+		if (*test[n].name != '.')
 		{
-			ft_putendl(test[i].name);
-			// ft_strdel(&test[i].name);
-			free(test[i].name);
+			ft_putendl(test[n].name);
+			ft_strdel(&test[n].name);
 		}
-		i++;
+		n--;
 	}
 }

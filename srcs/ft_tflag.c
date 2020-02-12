@@ -19,10 +19,6 @@ void    ft_timeflag(char **path, t_flags *mflag, t_dir *data)
 	// struct stat	buf;
 
 	i = 0;
-    ///////////////////////////////
-    // int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
-    // int n = sizeof(arr)/sizeof(arr[0]);
-    ///////////////////////////////
 	while (ft_check_flags(&path[i]))
 		i++;
 	i++;
@@ -33,18 +29,20 @@ void    ft_timeflag(char **path, t_flags *mflag, t_dir *data)
 		{
             ft_opendirtime(".", data);
             ft_displaytime(data, ft_structlen(data));
-            // printf("this is the first time%d\n", data->mtime);
-            // ft_displaytime(data, ft_structlen(data));
-            // numberSort(&data->mtime, ft_structlen(data)); //
-		    // printf("Sorted array: \n"); //
-		    // printArray(&data->mtime, ft_structlen(data)); //
         }else
         {
-            while (path[i] != NULL)
+            if (ft_isdir(path[i]))
 			{
-                ft_opendirtime("srcs", data);
-                ft_displaytime(data, ft_structlen(data));
-                i++;
+                while (path[i] != NULL)
+                {
+                    ft_opendirtime(path[i], data);
+                    // ft_displaytime(data, ft_structlen(data));
+                    printf("Path is: %s", path[i]);
+                    i++;
+                }
+            }else
+            {
+                ft_putendl(path[i]);
             }
         }
         
