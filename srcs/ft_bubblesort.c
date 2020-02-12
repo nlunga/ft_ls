@@ -55,14 +55,20 @@ void	numberSort(t_dir order[], int n)
 		j = 0;
 		while (j  < n-i-1)
 		{
-			if (order[j].mtime > order[j+1].mtime)  {
+			if (order[j].mtime > order[j+1].mtime)
+			{
             	printf("We should swap values: %d and %d\n", j, j + 1);
 				temp = order[j];
 				order[j] = order[j + 1];
 				order[j + 1] = temp;
-
-		
-			//   ft_swap(&order[j].mtime, &order[j+1].mtime);
+			}else if (order[j].mtime == order[j+1].mtime)
+			{
+				if (ft_strcmp(order[j].name, order[j].name) == 1)
+				{
+					temp = order[j];
+					order[j] = order[j + 1];
+					order[j + 1] = temp;
+				}
 			}
 			j++;
 		}
