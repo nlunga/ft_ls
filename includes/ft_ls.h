@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 09:24:58 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/12 09:57:22 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 10:58:36 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_dir
 {
 	char		*name;
 	char		*path;
+	struct stat	file;
 	int			mtime;
 }				t_dir;
 

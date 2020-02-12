@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/01 10:07:36 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/10 15:12:00 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 10:51:48 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,14 @@ void	ft_displaytime(t_dir test[], int n)
 	int		i;
 
 	i = 0;
-	// ft_bubblesort(test);
-	ft_timesort(test);
-//	ft_timesort(test);
-//	ft_ttt(test);
+	numberSort(test, n);
 	while (i < n)
 	{
 		if (*test[i].name != '.')
 		{
 			ft_putendl(test[i].name);
-			ft_strdel(&test[i].name);
+			// ft_strdel(&test[i].name);
+			free(test[i].name);
 		}
 		i++;
 	}

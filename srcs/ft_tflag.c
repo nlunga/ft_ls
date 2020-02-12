@@ -6,7 +6,7 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:42:20 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/12 09:58:44 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/12 10:50:13 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void    ft_timeflag(char **path, t_flags *mflag, t_dir *data)
         if (i == 2 && path[i] == NULL)
 		{
             ft_opendirtime(".", data);
+            ft_displaytime(data, ft_structlen(data));
             // printf("this is the first time%d\n", data->mtime);
             // ft_displaytime(data, ft_structlen(data));
             // numberSort(&data->mtime, ft_structlen(data)); //
@@ -41,7 +42,8 @@ void    ft_timeflag(char **path, t_flags *mflag, t_dir *data)
         {
             while (path[i] != NULL)
 			{
-                ft_opendir(path[i], data);
+                ft_opendirtime("srcs", data);
+                ft_displaytime(data, ft_structlen(data));
                 i++;
             }
         }
