@@ -24,22 +24,18 @@ int	main(int ac, char **av)
 {
 	int		size = 1024;
 	t_dir	start[size];
-	// t_dir	time[size];
 	t_flags	*mflag;
 
 	if (!(mflag = (t_flags *)malloc(sizeof(t_flags))))
 		return (0);
 	if (ac == 1 && av)
 	{
-		// numberSort(arr, n); 
-		// printf("Sorted array: \n"); 
-		// printArray(arr, n);
 		ft_opendir(".", start);
-		// ft_fixtime(start);
 		ft_display(start, ft_structlen(start));
 	}
 	else
 	{
+
 		// ft_lflag(av, mflag, start);
 		// ft_timeflag(av, mflag, start, time);
 		ft_timeflag(av, mflag, start);
