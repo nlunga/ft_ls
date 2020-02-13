@@ -17,7 +17,6 @@ void    ft_timeflag(char **path, t_flags *mflag, t_dir *data)
     int			i;
 	// int			j;
 	// struct stat	buf;
-
 	i = 0;
 	while (ft_check_flags(&path[i]))
 		i++;

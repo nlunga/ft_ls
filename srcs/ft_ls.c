@@ -35,10 +35,8 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-
+		do_flags(ac, av, mflag, start);
 		// ft_lflag(av, mflag, start);
-		// ft_timeflag(av, mflag, start, time);
-		ft_timeflag(av, mflag, start);
 		// ft_display(start, ft_structlen(start));
 	}
 	free(mflag);

@@ -66,6 +66,9 @@ void			ft_assign(char **str, t_flags *m_flags);
 void			ft_verflag(char **str, t_flags *m_flags);
 void			ft_lflag(char **path, t_flags *mflag, t_dir *data);
 void			ft_timeflag(char **path, t_flags *mflag, t_dir *data);
+void            do_flags(int argc, char **argv, t_flags *m_flag, t_dir *find_data);
+void            ft_multi_a(char **argv, int i, int n, t_dir *find_data);
+void            ft_aflag(int argc, char **argv, t_flags *m_flags, t_dir *find_data);
 // void			ft_timeflag(char **path, t_flags *mflag, t_dir *data, t_dir *time);
 
 #endif

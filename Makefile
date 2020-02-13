@@ -18,12 +18,13 @@ FLAGS = -Wall -Werror -Wextra -c
 
 SRCS = ./srcs/ft_bubblesort.c ./srcs/ft_display.c ./srcs/ft_flags.c\
 	   ./srcs/ft_opendir.c ./srcs/ft_verflag.c ./srcs/permissions.c\
-	   ./srcs/tools.c ./srcs/ft_tflag.c
+	   ./srcs/tools.c ./srcs/ft_tflag.c ./srcs/do_flags.c \
+	   ./srcs/ft_aflag.c
 
 # OBJS = $(SRCS:.c=.o)
 OBJS = ./ft_bubblesort.o ./ft_display.o ./ft_flags.o\
 	   ./ft_opendir.o ./ft_verflag.o ./permissions.o\
-	   ./tools.o ./ft_tflag.o
+	   ./tools.o ./ft_tflag.o ./do_flags.o ./ft_aflag.o
 
 all: $(NAME)
 

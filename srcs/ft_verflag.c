@@ -18,28 +18,32 @@ void	ft_assign(char **str, t_flags *m_flags)
 	int	j;
 
 	i = 1;
-	if (ft_check_flags(str))
-	{
+	// if (ft_check_flags(str))
+	// {
 		while (str[i])
 		{
 			j = 1;
 			while (str[i][j] != '\0')
 			{
-				if (str[i][j] == 'l')
-					m_flags->l_flag = 1;
-				else if (str[i][j] == 'a')
-					m_flags->a_flag = 1;
-				else if (str[i][j] == 'r')
-					m_flags->r_flag = 1;
-				else if (str[i][j] == 't')
-					m_flags->t_flag = 1;
-				else if (str[i][j] == 'R')
-					m_flags->cr_flag = 1;
-				j++;
+				if (ft_check_flags(str))
+				{
+					if (str[i][j] == 'l')
+						m_flags->l_flag = 1;
+					else if (str[i][j] == 'a')
+						m_flags->a_flag = 1;
+					else if (str[i][j] == 'r')
+						m_flags->r_flag = 1;
+					else if (str[i][j] == 't')
+						m_flags->t_flag = 1;
+					else if (str[i][j] == 'R')
+						m_flags->cr_flag = 1;
+					j++;
+				}
+				// j++;
 			}
 			i++;
 		}
-	}
+	// }
 }
 
 void	ft_verflag(char **str, t_flags *m_flags)
@@ -50,6 +54,6 @@ void	ft_verflag(char **str, t_flags *m_flags)
 	m_flags->t_flag = 0;
 	m_flags->cr_flag = 0;
 
-//	if (ft_check_flags(str))
+	// if (ft_check_flags(str))
 		ft_assign(str, m_flags);
 }
