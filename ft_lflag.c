@@ -20,7 +20,7 @@ int	ft_lflag(int argc, char **argv, t_flags *mf, d_list *f)
 	i = 1;
 	while (i < argc && ft_check_flags(argc, argv) == 0)
 	{
-		i++;
+		i++; 
 	}
 	i++;
 

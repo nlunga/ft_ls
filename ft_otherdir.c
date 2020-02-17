@@ -21,7 +21,7 @@ void	ft_otherdir(char *argv, d_list *find_data)
 	dir = opendir(argv);
 	if (dir == NULL)
 	{
-		perror("opendir");
+		perror(argv);
 		exit(1);
 	}
 	i = 0;

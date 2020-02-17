@@ -6,62 +6,48 @@
 /*   By: nlunga <nlunga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 13:07:59 by nlunga            #+#    #+#             */
-/*   Updated: 2020/02/03 15:26:39 by nlunga           ###   ########.fr       */
+/*   Updated: 2020/02/17 13:33:24 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_swap_str(char *str, char *str1)
+static	void	run_other(char **path, int i, t_dir *data)
 {
-	char	temp;
-
-	temp = *str;
-	*str = *str1;
-	*str1 = temp;
-}
-
-void	ft_store_time(char **path, char **path1, char str)
-{
-	struct stat		buf;
-	struct stat		buf1;
-	char			*s1;
-	char			*s2;
-
-	s1 = ft_strjoin(str, *path);
-	s2 = ft_strjoin(str, *path1);
-	stat(s1, &buf);
-	stat(s2, &buf1);
-	if (buf.st_mtime < buf1.st_mtime)
-		ft_swap_str(path, path1);
-	else
+	while (path[i] != NULL)
 	{
-		if (buf.st_mtime == buf1.st_mtime)
+		if (ft_isdir(path[i]))
 		{
-			if (buf.st_mtimespec.tv_nsec < buf1.st_mtimespec.tv_nsec)
-				ft_swap_str(path, path1);
+			ft_opendirtime(path[i], data);
+			ft_displaytime(data, ft_structlen(data));
 		}
-	}
-}
-
-char	**ft_tflag(char *dir, char **array, int n)
-{
-	int		i;
-	int		k;
-	char	*str;
-
-	str = ft_strjoin(dir, "/");
-	i = 0;
-	while (i < n - 1)
-	{
-		k = 0;
-		while (k < (n - i - 1))
+		else
 		{
-			ft_store_time(&array[k], &array[k + 1], str);
-			k++;
+			ft_putendl(path[i]);
 		}
 		i++;
 	}
-	free(str);
-	return (array);
+}
+
+void	ft_timeflag(int argc, char **path, t_flags *mflag, t_dir *data)
+{
+	int		i;
+
+	i = 1;
+	while (i < argc && ft_check_flags(argc, path) == 0)
+		i++;
+	i++;
+	ft_verflag(argc, path, mflag);
+	if (mflag->t_flag == 1)
+	{
+		if (i == 2 && path[i] == NULL)
+		{
+			ft_opendirtime(".", data);
+			ft_displaytime(data, ft_structlen(data));
+		}
+		else
+		{
+			run_other(path, i, data);
+		}
+	}
 }

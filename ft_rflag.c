@@ -47,6 +47,7 @@ void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 				ft_otherdir(argv[j], find_data);
 				while (find_data->dr[i] != NULL)
 					i++;
+				i--;
 				while (i >= 0)
 				{
 					ft_putendl(find_data->dr[i]);

@@ -34,6 +34,14 @@ typedef struct		s_flags
 	int				cr_flag;
 }					t_flags;
 
+typedef struct	s_dir
+{
+	char		*name;
+	char		*path;
+	struct stat	file;
+	int			mtime;
+}				t_dir;
+
 typedef struct		c_list
 {
 	char			*current;
@@ -49,13 +57,17 @@ typedef struct		c_list
 
 void	ft_otherdir(char *argv, d_list *find_data);
 void	ft_aotherdir(char *argv, d_list *find_data);
+void	ft_opendirtime(char *path, t_dir data[]);
 void	ft_currentdir(d_list *find_data);
 void	ft_bubblesort(char **str);
-void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data);
+void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data, t_dir *data);
+void    ft_timeflag(int argc, char **path, t_flags *mflag, t_dir *data);
 //void	ft_display_owner_perm(fileStat.st_mode);
 int		ft_check_flags(int argc, char **argv);
 //int	ft_isdir(int argc, char **argv);
 int		ft_isdir(char *argv);
+int		ft_arrlen(char **arr);
+int		ft_structlen(t_dir gets[]);
 int		ft_conflags(int argc, char **argv);
 int		ft_reconflags(int argc, char **argv);
 int		ft_check_multi(char *str, char c, int i);
@@ -74,6 +86,8 @@ void	ft_verflag(int argc, char	**argv, t_flags *m_flags);
 void	da_perm(struct stat fileinfo);
 void	ft_getuid(struct stat fileinfo);
 void	ft_getgid(struct stat fileinfo);
+void	ft_displaytime(t_dir test[], int n);
+void	number_sort(t_dir order[], int n);
 void	ft_m_time(const char *path);
 char	**ft_sort(int argc, void (*ft_currentdir)(d_list), d_list *find_data);
 #endif

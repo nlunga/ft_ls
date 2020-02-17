@@ -200,7 +200,7 @@ void    suffle_time(char **paths)
 		}
     }
 }
-
+/*
 void	ft_tflag(int argc, char **argv, d_list *find_data)
 {
 	int i;
@@ -216,10 +216,11 @@ void	ft_tflag(int argc, char **argv, d_list *find_data)
 		while (find_data->dr[i] != NULL && argv)
 		{
 //			printf("%s\n", find_data->mtime[i]);
-			printf(">>%d\n", find_data->time[i]);
+			// printf(">>%d\n", find_data->time[i]);
 //			ft_putendl(ft_tsort(find_data->dir_strings, find_data));
 			i++;
 		}
 		ft_strdel(find_data->mtime);
 	}
 }
+*/

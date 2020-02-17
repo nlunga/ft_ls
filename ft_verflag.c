@@ -12,16 +12,6 @@
 
 #include "ft_ls.h"
 
-int	ft_arrlen(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-		i++;
-	return (i);
-}
-
 void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 {
 	int	i;
@@ -55,10 +45,9 @@ void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 			i++;
 		}
 	}
-	//return ; //(0);
 }
 
-void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data)
+void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data, t_dir *data)
 {
 	int i;
 	int c;
@@ -74,8 +63,8 @@ void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data)
 	if (m_flags->cr_flag == 1)
 		ft_crflag(argc, argv, m_flags, find_data);
 	if (m_flags->t_flag == 1)
-		ft_tflag(".", find_data->dr, ft_arrlen(find_data->dr));
-	if (!ft_check_flags(argc, argv))//else
+		ft_timeflag(argc, argv, m_flags, data);
+	if (!ft_check_flags(argc, argv))
 	{
 		c = 0;
 		while (argv[i] != NULL)

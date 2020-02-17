@@ -6,11 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/19 08:41:41 by nlunga            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/08/23 15:11:22 by nlunga           ###   ########.fr       */
-=======
 /*   Updated: 2019/09/13 21:45:12 by nlunga           ###   ########.fr       */
->>>>>>> b761845e4f8a3cb5a090ecaa31907f0ba8909537
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +31,31 @@ void	ft_currentdir(d_list *find_data)
 			find_data->strings[i] = ft_strdup(sd->d_name);
 			i++;
 		}
+	}
+	closedir(dir);
+}
+
+void	ft_opendirtime(char *path, t_dir data[])
+{
+	DIR				*dir;
+	struct dirent	*sd;
+	struct stat		buf;
+	int				i;
+
+	i = 0;
+	dir = opendir(path);
+	if (dir == NULL)
+		ft_putendl("Error!!!");
+	while ((sd = readdir(dir)) != NULL)
+	{
+		data[i].name = ft_strdup(sd->d_name);
+		if (lstat(data[i].name, &buf) < 0)
+		{
+			perror(data[i].name);
+			return ;
+		}
+		data[i].mtime = buf.st_mtime;
+		i++;
 	}
 	closedir(dir);
 }

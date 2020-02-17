@@ -14,18 +14,17 @@
 
 void	ft_recurstore(char **arr, d_list *find_data)
 {
-	int i;
-	int x = 0;
-	static int c = 0;
+	int			i;
+	int			x;
+	static int	c;
 
+	x = 0;
 	i = 0;
-//	ft_otherdir(arr, find_data);
+	c = 0;
 	while (arr[i] != NULL)
 	{
-		//printf("arr[%i]: %s\n", i, arr[i]);
 		if (ft_isdir(arr[i]))
 		{
-			//printf("-----------------arr[%d] has passed is_dir: %s\n", i,  arr[i]);
 			find_data->big_r[c] = ft_strdup(arr[i]);
 			c++;
 		}
@@ -34,8 +33,6 @@ void	ft_recurstore(char **arr, d_list *find_data)
 		i++;
 	}
 	ft_putendl(" ");
-	sleep(5);
-	//printf("%s\n", find_data->big_r[x]);
 	while (find_data->big_r[x] != NULL)
 	{
 		ft_recurstore(&find_data->big_r[x], find_data);
@@ -46,19 +43,17 @@ void	ft_recurstore(char **arr, d_list *find_data)
 
 void	ft_crflag(int argc, char **path, t_flags *m_flags, d_list *find_data)
 {
-	int x = 0;
+	int x;
 
+	x = 0;
 	ft_verflag(argc, path, m_flags);
 	if (m_flags->cr_flag)
 	{
 		if (argc == 2)
 		{
-		//	int i;
-
-		//	i = 0;
 			ft_otherdir(".", find_data);
 			ft_recurstore(find_data->dr, find_data);
-		}			
+		}
 	}
 	printf("%s\n", find_data->big_r[x]);
 	while (find_data->big_r[x] != NULL)

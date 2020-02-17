@@ -6,7 +6,7 @@
 /*   By: nlunga <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/23 11:16:39 by nlunga            #+#    #+#             */
-/*   Updated: 2019/09/06 10:15:20 by nlunga           ###   ########.fr       */
+/*   Updated: 2019/09/06 10:50:59 by nlunga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	string_sort(char **arr,const int len,int (*cmp_func)(const char *a, const c
 
 }
 */
-
+/*
 void	ft_sort(int argc, char **temp,void (*ft_currentdir)(d_list), d_list *find_data)
 {
 	int i;
@@ -84,7 +84,7 @@ void	ft_sort(int argc, char **temp,void (*ft_currentdir)(d_list), d_list *find_d
 	}
 	return (NULL);
 }
-
+*/
 void	ft_bubblesort(char **str)
 {
 	int i;
@@ -96,7 +96,7 @@ void	ft_bubblesort(char **str)
 		i = 0;
 		while (str[i + 1])
 		{
-			if (strcmp(str[i], str[i + 1]) > 0)
+			if (ft_strcmp(str[i], str[i + 1]) > 0)
 			{
 				temp = str[i];
 				str[i] = str[i + 1];
@@ -108,7 +108,7 @@ void	ft_bubblesort(char **str)
 		sort = 1;
 		while (str[i + 1] && sort)
 		{
-			if (strcmp(str[i], str[i + 1]) > 0)
+			if (ft_strcmp(str[i], str[i + 1]) > 0)
 				sort = 0;
 			i++;
 		}
