@@ -16,12 +16,12 @@ void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 {
 	int	i;
 	int	j;
+
 	m_flags->l_flag = 0;
 	m_flags->a_flag = 0;
 	m_flags->r_flag = 0;
 	m_flags->t_flag = 0;
 	m_flags->cr_flag = 0;
-	
 	i = 1;
 	if (ft_check_flags(argc, argv))
 	{
@@ -30,13 +30,15 @@ void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 			j = 1;
 			while (argv[i][j] != '\0')
 			{
-				// if (argv[i][j] != 'l' && argv[i][j] != 'a' && argv[i][j] != 'r' && argv[i][j] != 't' && argv[i][j] != 'R')
-				// {
-				// 	ft_putstr("ft_ls: illegal option -- ");
-				// 	ft_putendl(&argv[i][j]);
-				// 	ft_putendl("usage: ls [-lartR] [file ...]");
-				// 	return ;
-				// }
+				if (argv[i][j] != 'l' && argv[i][j] != 'a'
+				&& argv[i][j] != 'r' && argv[i][j] != 't'
+				&& argv[i][j] != 'R' && !ft_isdir(argv[i]))
+				{
+					ft_putstr("ft_ls: illegal option -- ");
+					ft_putendl(&argv[i][j]);
+					ft_putendl("usage: ls [-lartR] [file ...]");
+					return ;
+				}
 				if (argv[i][j] == 'l')
 					m_flags->l_flag = 1;
 				else if (argv[i][j] == 'a')
@@ -54,7 +56,8 @@ void	ft_verflag(int argc, char **argv, t_flags *m_flags)
 	}
 }
 
-void	do_flags(int argc, char **argv, t_flags *m_flags, d_list *find_data, t_dir *data)
+void	do_flags(int argc, char **argv, t_flags *m_flags,
+				d_list *find_data, t_dir *data)
 {
 	int i;
 	int c;
