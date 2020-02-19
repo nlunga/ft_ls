@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-int	ft_isdir(char *path)
+int		ft_isdir(char *path)
 {
 	struct stat	buf;
 
@@ -23,7 +23,7 @@ int	ft_isdir(char *path)
 		return (0);
 }
 
-int	ft_arrlen(char **arr)
+int		ft_arrlen(char **arr)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	ft_arrlen(char **arr)
 	return (i);
 }
 
-int	ft_structlen(t_dir gets[])
+int		ft_structlen(t_dir gets[])
 {
 	int	i;
 

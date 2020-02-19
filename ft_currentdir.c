@@ -45,7 +45,7 @@ void	ft_opendirtime(char *path, t_dir data[])
 	i = 0;
 	dir = opendir(path);
 	if (dir == NULL)
-		ft_putendl("Error!!!");
+		ft_putendl("noooo Error!!!");
 	while ((sd = readdir(dir)) != NULL)
 	{
 		data[i].name = ft_strdup(sd->d_name);
@@ -58,4 +58,70 @@ void	ft_opendirtime(char *path, t_dir data[])
 		i++;
 	}
 	closedir(dir);
+}
+
+void	ft_opendir(char *path, t_dir data[])
+{
+	DIR				*dir;
+	struct dirent	*sd;
+	int				i;
+
+	i = 0;
+	if ((dir = opendir(path)) == NULL)
+	{
+		perror(path);
+		return ;
+	}
+	while ((sd = readdir(dir)) != NULL)
+	{
+		data[i].name = ft_strdup(sd->d_name);
+		i++;
+	}
+	closedir(dir);
+}
+
+void	ft_displayrev(t_dir test[], int n)
+{
+	n--;
+	ft_stuct_sort(test);
+	while (n >= 0)
+	{
+		if (*test[n].name != '.')
+		{
+			ft_putendl(test[n].name);
+			ft_strdel(&test[n].name);
+		}
+		n--;
+	}
+}
+
+void	ft_stuct_sort(t_dir order[])
+{
+	int		i;
+	int		sort;
+	char	*temp;
+
+	sort = 0;
+	while (!sort)
+	{
+		i = 0;
+		while (order[i + 1].name)
+		{
+			if (ft_strcmp(order[i].name, order[i + 1].name) > 0)
+			{
+				temp = order[i].name;
+				order[i].name = order[i + 1].name;
+				order[i + 1].name = temp;
+			}
+			i++;
+		}
+		i = 0;
+		sort = 1;
+		while (order[i + 1].name && sort)
+		{
+			if (ft_strcmp(order[i].name, order[i + 1].name) > 0)
+				sort = 0;
+			i++;
+		}
+	}
 }

@@ -12,51 +12,42 @@
 
 #include "ft_ls.h"
 
-void	ft_rflag(int argc, char **argv, t_flags *m_flags, d_list *find_data)
+static	void	run_other(char **path, int i, t_dir *data)
 {
-	ft_verflag(argc, argv, m_flags);
-	if (m_flags->r_flag == 1)
+	while (path[i] != NULL)
 	{
-		if (argc == 2)
+		if (ft_isdir(path[i]))
 		{
-			int i;
-
-			i = 0;
-			ft_otherdir(".", find_data);
-			while (find_data->dr[i] != NULL)
-				i++;
-			while (i >= 0)
-			{
-				ft_putendl(find_data->dr[i]);
-				ft_strdel(&find_data->dr[i]);
-				i--;
-			}
+			ft_opendir(path[i], data);
+			ft_displayrev(data, ft_structlen(data));
 		}
 		else
 		{
-			int i;
-			int j;
+			ft_putendl(path[i]);
+		}
+		i++;
+	}
+}
 
-			j = 2;
-			i = 0;
-			while (argv[j])
-			{
-				ft_putstr("\n");
-				ft_putstr(argv[j]);
-				ft_putendl(":");
-				ft_otherdir(argv[j], find_data);
-				while (find_data->dr[i] != NULL)
-					i++;
-				i--;
-				while (i >= 0)
-				{
-					ft_putendl(find_data->dr[i]);
-					ft_strdel(&find_data->dr[i]);
-					i--;
-				}
-				j++;
-			}
+void			ft_rflag(int argc, char **argv, t_flags *mflag, t_dir *data)
+{
+	int		i;
 
+	i = 1;
+	while (i < argc && ft_check_flags(argc, argv) == 0)
+		i++;
+	i++;
+	ft_verflag(argc, argv, mflag);
+	if (mflag->r_flag == 1)
+	{
+		if (i == 2 && argv[i] == NULL)
+		{
+			ft_opendir(".", data);
+			ft_displayrev(data, ft_structlen(data));
+		}
+		else
+		{
+			run_other(argv, i, data);
 		}
 	}
 }

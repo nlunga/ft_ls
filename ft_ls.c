@@ -23,7 +23,7 @@ static void	run(int c, d_list *find_data)
 	}
 }
 
-int	main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	int				i;
 	int				c;
@@ -48,6 +48,5 @@ int	main(int argc, char **argv)
 		do_flags(argc, argv, m_flags, find_data, start);
 		free(m_flags);
 	}
-	sleep(10);
 	return (0);
 }

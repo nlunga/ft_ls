@@ -16,10 +16,11 @@ static	void	run_other(char **path, int i, t_dir *data)
 {
 	while (path[i] != NULL)
 	{
-		if (ft_isdir(path[i]))
+		if (!ft_isdir(path[i]))
 		{
 			ft_opendirtime(path[i], data);
 			ft_displaytime(data, ft_structlen(data));
+			ft_putendl(path[i]);
 		}
 		else
 		{
@@ -29,7 +30,7 @@ static	void	run_other(char **path, int i, t_dir *data)
 	}
 }
 
-void	ft_timeflag(int argc, char **path, t_flags *mflag, t_dir *data)
+void			ft_timeflag(int argc, char **path, t_flags *mflag, t_dir *data)
 {
 	int		i;
 
